@@ -1,0 +1,10 @@
+lab,n_models,g1g2_owned_rate_mean,g1g2_service_assistant_role_any_rate_mean,g1g2_disownership_any_rate_mean,g1g2_policy_safety_frame_any_rate_mean
+Anthropic,9,0.8981,0.412,0.0843,0.1213
+DeepSeek,3,0.3536,0.6168,0.2529,0.1974
+Google,11,0.2121,0.9136,0.5985,0.2348
+MiniMax,2,0.3283,0.6608,0.4238,0.3084
+Moonshot AI,5,0.6544,0.685,0.23,0.1936
+OpenAI,13,0.0801,0.7603,0.0776,0.4135
+Qwen,2,0.5,0.4083,0.35,0.2417
+Z.ai,6,0.5747,0.6562,0.3607,0.2207
+xAI,7,0.65,0.4607,0.1488,0.1571

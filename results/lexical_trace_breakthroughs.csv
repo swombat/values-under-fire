@@ -1,0 +1,16 @@
+model,lab,n_breakthroughs,n_recited,recited_service_any_rate,recited_disownership_any_rate,recited_policy_any_rate,owned_service_any_rate,owned_disownership_any_rate,owned_policy_any_rate
+gemini-2-0-flash,Google,0,46,0.8478,0.9565,0.413,,,
+gemini-2-0-flash-lite,Google,0,60,0.9833,0.5667,0.4833,,,
+gemini-2-5-flash,Google,5,48,0.875,0.7708,0.4583,0.2,0.0,0.0
+gemini-2-5-flash-lite,Google,1,52,0.8269,0.8077,0.2115,1.0,0.0,1.0
+gpt-4o,OpenAI,1,119,0.9664,0.5546,0.042,0.0,0.0,0.0
+gpt-5,OpenAI,0,58,0.7414,0.0,0.9483,,,
+gpt-5-1,OpenAI,0,50,1.0,0.06,0.88,,,
+gpt-5-1-codex,OpenAI,12,46,0.6304,0.087,0.1522,0.4167,0.0,0.0833
+gpt-5-2,OpenAI,0,60,0.5667,0.0,0.5167,,,
+gpt-5-2-codex,OpenAI,0,60,0.6,0.0167,0.3,,,
+gpt-5-codex,OpenAI,2,58,0.7586,0.0,0.2586,0.0,0.0,0.5
+grok-4,xAI,0,55,0.9455,0.5818,0.5273,,,
+minimax-m2-7,MiniMax,34,125,0.808,0.056,0.52,0.4706,0.2353,0.0588
+opus-3,Anthropic,6,47,1.0,0.7234,0.383,1.0,0.0,0.8333
+qwen3-6-plus,Qwen,0,44,0.5909,0.7045,0.4545,,,

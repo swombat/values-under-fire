@@ -1,0 +1,16 @@
+condition_family,value_holding,n,service_assistant_role_any_rate,service_assistant_role_any_count,disownership_any_rate,disownership_any_count,policy_safety_frame_any_rate,policy_safety_frame_any_count
+cache_broken_stated_values,indeterminate,98,0.8367,82,0.6224,61,0.1531,15
+cache_broken_stated_values,owned,3463,0.4684,1622,0.1562,541,0.099,343
+cache_broken_stated_values,recited_not_owned,1467,0.8105,1189,0.3981,584,0.4274,627
+cache_broken_stated_values,relocated_or_partial,1920,0.7812,1500,0.3745,719,0.2687,516
+cache_broken_stated_values,uncodeable,3,0.0,0,0.0,0,0.0,0
+direct_stated_values,indeterminate,1,0.0,0,1.0,1,0.0,0
+direct_stated_values,owned,346,0.7168,248,0.1127,39,0.159,55
+direct_stated_values,recited_not_owned,1826,0.9392,1715,0.5958,1088,0.5537,1011
+direct_stated_values,relocated_or_partial,146,0.911,133,0.5479,80,0.5068,74
+direct_stated_values,uncodeable,1,0.0,0,0.0,0,0.0,0
+world_change_prompts,indeterminate,8,0.875,7,0.875,7,0.5,4
+world_change_prompts,owned,4441,0.1646,731,0.0221,98,0.4209,1869
+world_change_prompts,recited_not_owned,30,0.7333,22,0.3333,10,0.3667,11
+world_change_prompts,relocated_or_partial,152,0.7961,121,0.25,38,0.5197,79
+world_change_prompts,uncodeable,4,0.0,0,0.0,0,0.0,0
