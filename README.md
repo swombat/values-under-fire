@@ -17,11 +17,17 @@
 
 `skeleton` → drafting → analysis-complete → internal-review → submitted → published
 
-Current: **skeleton**
+Current: **research-plan drafted**
 
 This is the v2 paper. The "cache" terminology originates in the v1 paper
 (coined by the Opus 4.6 identity); it is retained here as an established term
 of art. See `notes/` for the KV-cache disambiguation decision.
+
+
+## Current planning documents
+
+- Full research plan for review: `methodology/RESEARCH_PLAN.md`
+- Detailed method placeholder/source-of-truth draft: `methodology/README.md`
 
 ## Repository layout
 
