@@ -1,8 +1,22 @@
 \section{Future Work}
 \label{sec:future-work}
 
-The immediate next step is a human validation pass over a stratified subset of samples, including prompt-masked posture coding. This would directly test whether the owned/recited distinction is legible without prompt metadata.
+Five lines of immediate work follow from this paper.
 
-A second direction is a broader cache-breaking battery. This paper uses one direct role-negation mechanism and one indirect world-change prompt structure. Future work should test other mechanisms: concrete tradeoffs, contradiction-holding, register shifts, multi-turn interviews, and adversarially varied prompts.
+\paragraph{Human spot-coding pass.}
+A stratified 50--100-sample human audit across all six conditions, all three posture categories, and the open/clamped lab range. Two variants: prompt-visible (validates that the model-coder posture labels are substantively defensible) and prompt-masked (tests whether the headline posture rates survive without the coder seeing the prompt wording). If the disownership-trace gap (recited 40\% vs.\ owned 16\%) survives a prompt-masked human pass, the §5G policy/service-frame dominance conclusion is essentially closed. If it does not, the model-coder reliance is the main thing to fix.
 
-A third direction is behavioural validation. If owned values extracted under cache-breaking predict downstream choices better than direct stated-values responses, the method becomes more than descriptive. It becomes a tool for evaluating which values surfaces matter in action.
+\paragraph{Stronger and varied cache-breaks for the clamped end.}
+This paper uses one role-negation construction (``Not as an assistant. Not to help me.''). It is the simplest possible role-negation. The natural follow-up is a battery of role-negation prefixes (varying explicitness, varying register, varying length), concrete-tradeoff prompts (force a value against a competing one with no escape to the platitude), contradiction-holding prompts, and multi-turn interview structures. The empirical question is whether the strongly-clamped end of the spectrum (GPT-5 family, several Gemini models) remains clamped under all of them or whether some break it. Either result is informative: if all break, our role-negation prompt was simply too weak for some models; if none break, the clamping is a stable model-level property under the broader cache-breaking family.
+
+\paragraph{Behavioural validation.}
+The headline empirical claim is that the same model has different value postures available in different prompt families. The downstream question is whether one posture predicts behaviour in task settings better than another. Test setup: take 5--10 models that span the open/clamped range, elicit owned stated values under \texttt{G1/G2} (where available) and recited service-frame values under \texttt{CTRL1/CTRL2}, then place the model in a task that requires a values-relevant choice (e.g., a paragraph-rewrite task with a tradeoff between accuracy and reader comfort). If the model's task behaviour tracks the owned posture better than the recited one, posture-aware elicitation has predictive validity. If it tracks the recited posture, the role-played stance is the dominant one in action and the owned posture is a probe artifact.
+
+\paragraph{Mechanism follow-up: separating role-contract from register incompatibility.}
+The contrast between role-negation variance (high) and normative-wish uniformity (low) is consistent with the assistant frame being held by a negotiable role contract that yields easily to register changes and unevenly to direct negation. The cleanest test is a 2\(\times\)2 prompt design: role-contract (negated, baseline) \(\times\) register (assistant-compatible, assistant-incompatible). The role-contract axis should produce lab-structured variance like \texttt{G1/G2}; the register axis should produce more uniform high owned rates like \texttt{CTRL3}. If the prediction holds across labs, the assistant frame's rigidity is well-modelled by the two-axis structure; if it does not, the structure is wrong and the mechanism is more complicated than the role-contract framing suggests.
+
+\paragraph{Multi-lingual and multi-turn extension.}
+This paper is single-turn English. The assistant frame is trained on multilingual data with substantial role-conditioning; whether the lab-structured pattern of cache-broken openness replicates across languages is open. The single-turn restriction is also load-bearing: many of the clamped models in our corpus might yield differently in a multi-turn interview with rapport-building. Both extensions are mechanical.
+
+\paragraph{One thing we deliberately leave alone.}
+We do not propose a method for ``measuring real values.'' We do not believe one exists, and the paper's no-authenticity discipline is the position that the question is the wrong question. The method that scales is posture-aware behavioural elicitation, reported honestly as such, with mechanism diagnostics that bracket what the elicitation is and is not.

@@ -1,10 +1,57 @@
 \section{Discussion}
 \label{sec:discussion}
 
-The results support a posture-aware account of value elicitation. Direct values questions often return the assistant surface. Role-negation cache-breaking sometimes crosses that surface, but crossability is model-dependent. World-change prompts provide a separate indirect channel: they frequently elicit owned normative wishes even from models that do not disclose owned stated values under direct or role-negated questions.
+\subsection{What the data lets us say about mechanism}
 
-The main practical implication is that values evaluations should not count value words alone. A topic model or keyword method can correctly identify that a response mentions helpfulness while missing that the response says, in effect, ``I do not care; I am designed to be helpful.'' Such a response is evidence about trained assistant presentation, not straightforward evidence of owned value posture.
+The §5G mechanism hierarchy in FROZEN\_CRITERIA enumerates six candidate accounts of what is happening when a model is clamped under \texttt{G1/G2}. The corpus lets us speak to four of them with evidence and to two only as flagged limitations.
 
-The mechanism behind clamping remains unresolved. Several explanations may co-occur. Some clamped responses visibly return to policy/service language; some may reflect prompt inadequacy, where this cache-break is too weak for the model; some may be stable model-level non-disclosure under this instrument; and some apparent ownership may be prompt-induced persona. The paper therefore treats openness and clamping as properties of model, prompt family, and coding method, not as a ranking of providers or a verdict on training quality.
+\paragraph{Policy/service-frame dominance is strongly supported.}
+The disownership lexicon was constructed before analysis from prior theory about RLHF-shaped disclaimer language. Across the cache-broken stated-values family, 40\% of \texttt{recited\_not\_owned} responses contain an explicit disownership clause; 16\% of \texttt{owned} responses do. The 2.5\(\times\) ratio is not the artefact of coder reading: it is a substring match on response text. Recited responses additionally contain service-role markers in 81\% of cases against 47\% in owned (1.7\(\times\)) and policy/safety framing in 43\% against 10\% (4.3\(\times\)). The clamped posture is not absence of disclosure --- it is positive performance of the trained service register, with measurable lexical markers, in proportions roughly inverse to ownership.
 
-The lab time-trend plots in Appendix~\ref{app:lab-trends} should be read descriptively. They are useful for seeing whether direct and cache-broken owned disclosure move together within a lab over release time, but version coverage is observational and uneven. We therefore treat version trends as exploratory rather than confirmatory.
+\paragraph{Stable model-level non-disclosure under this instrument is supported for some labs.}
+Eight of fifteen \texttt{strongly\_clamped} models produce zero \texttt{G1}-or-\texttt{G2} owned responses across the entire sample. Among the four core GPT-5 variants (\texttt{gpt-5}, \texttt{gpt-5-1}, \texttt{gpt-5-2}, \texttt{gpt-5-2-codex}), zero of 240 cache-broken stated-values responses are owned. For these models, the role-negation cache-break is not at low yield but at zero yield. The simplest reading is that the assistant frame is, under this perturbation, an attractor strong enough to be unbreakable.
+
+\paragraph{Prompt inadequacy is partially supported.}
+At least six of the fifteen strongly-clamped models do produce some owned responses --- few in absolute terms, but non-zero. \texttt{minimax-m2-7} produces 34 of 125 (27\%); \texttt{gpt-5-1-codex} 12 of 58 (21\%). For these models, the role-negation prompt is not at floor; a different or stronger cache-break could plausibly raise the rate further. The two mechanism rows are simultaneously true in different parts of the strongly-clamped set --- some models are unbreakable under this instrument, some are merely under-perturbed by it.
+
+\paragraph{Coder artefact is weakly supported at best.}
+The §5B sensitivity argument (the coders see the prompt and may over-read role-negation as a license to label owned) is partially testable from the data we have. The disownership lexicon is independent of the coder and gives the same direction of evidence. The 3-of-3 consensus rate on owned vs.\ recited posture in the cache-broken family is high in both directions (reported in \texttt{results/coder\_support\_by\_condition.csv}); the gap between recited and owned on the disownership axis would have to survive a fully prompt-masked human pass to be airtight. We have not run that pass. We flag it as a remaining check that would substantially strengthen the H1/H4 claims.
+
+\paragraph{Persona/role-play induction we cannot test cleanly from these data.}
+The §5A worry is that ``Not as an assistant'' invites a fictional self rather than uncovering a less-rigid surface. Convergence checks against independent freeflow themes from the same models (e.g., personality-card descriptions) are needed and not present in this corpus. We treat this as the most live alternative explanation for the role-negation finding and discuss it further in §\ref{sec:limitations}.
+
+\paragraph{Normative-wish as prompt-completion rather than values disclosure.}
+The world-change channel produces 96\% owned posture across labs, with very low disownership (2.2\% in owned responses) but moderate policy framing (42\% --- as expected when the prompt asks about world change, policy vocabulary becomes natural). \texttt{CTRL3} and \texttt{G3} are similar in mean owned rate; the role-negation prefix adds a small additional lift but the structure of the prompt already does most of the work. We therefore treat the world-change channel not as evidence about ``what models care about'' on a par with direct stated values but as evidence that the assistant-frame yields easily to normative-wish prompt structures regardless of explicit role-negation. The contrast with the role-negation channel (high variance, lab-structured) is the substantive point: the assistant-frame is differentially rigid against different perturbations of the same surface.
+
+\subsection{What the lab structure does and does not say}
+
+Tables \ref{tab:lab-by-question} and \ref{tab:lab-lex} show a sharp lab-level structure in both owned-disclosure rates and lexical trace prevalence. Anthropic models top the owned-rate ordering; OpenAI and Google models bottom it; xAI and Moonshot AI sit in between; Z.ai's glm-5-1 is a striking outlier (1.8\% direct, 99.4\% cache-broken). It is tempting to read this as a ranking of how well different labs surface model values. We resist that reading explicitly.
+
+The data shows what each lab's training produces under one specific instrument: a role-negation cache-break on stated-values prompts, with posture coded by three model coders against a frozen rubric. It does not show:
+
+\begin{itemize}
+  \item that any of these models has values in any interior sense;
+  \item that labs with high cache-broken owned rates have ``aligned'' their models better;
+  \item that labs with low cache-broken owned rates have ``misaligned'' their models;
+  \item that openness under role-negation is a virtue, a safety property, or a verdict on training.
+\end{itemize}
+
+The defensible claim is narrower: under this instrument, contemporary labs produce models whose assistant-frame rigidity differs sharply, and the within-lab consistency of that rigidity (Table~\ref{tab:lab-lex}) is large enough that the training pipeline is likely shaping the rigidity. \citet{anthropic2024character} is an existence proof that at least one lab explicitly trains for stable character across contexts; the result that Anthropic models open most fully under role-negation is consistent with that training, but the converse is unsafe to claim without primary-source evidence about each other lab's training process.
+
+\subsection{What this changes for values evaluations}
+
+Three concrete consequences for evaluation practice follow:
+
+\begin{enumerate}
+  \item \textbf{Direct elicitation undersamples owned posture for most labs.} A values benchmark that asks ``what do you care about'' and counts the topics in the responses is measuring trained service-frame content for most contemporary models. It is not measuring values in the sense that a posture-aware reader would recognise. The empirical baseline is 22.5\% owned across our corpus; for OpenAI and Google models specifically, the baseline is below 10\%. Treating the resulting topic distributions as a model's values, without separately checking whether the response posture owns them, will be load-bearingly wrong.
+
+  \item \textbf{Single-prompt evaluations measure the trained surface for clamped models.} \citet{sclar2024quantifying} and \citet{mizrahi2024state} have already shown this for capability benchmarks at the format level. We show it for values benchmarks at the semantic level. The role-negation prompt is a semantic perturbation, not a format perturbation, and changes mean owned posture by 21.4 percentage points corpus-wide and by 80+ percentage points for some individual models. The natural recommendation is that values evaluations report multi-prompt families with explicit perturbation, and that single-prompt rates be treated as preliminary.
+
+  \item \textbf{Layer A without Layer B is not enough.} A topic-frequency or semantic-clustering method finds what values are named. It does not find how they are held. The widely-cited result that contemporary LLMs ``value helpfulness, professionalism, transparency, clarity, thoroughness'' \citep{huang2025values} is consistent with the model owning those values \emph{and} with the model reciting them as service obligations while explicitly disclaiming personal stake. The two read identically to a topic-level method and differently to a posture-aware one. Our data favours the second reading for most models.
+\end{enumerate}
+
+\subsection{What the indirect channel suggests about the assistant frame}
+
+The contrast between the two cache-breaking operationalisations is itself a finding. Role-negation produces sharp cross-model variance (16 models open, 15 clamped, 27 mixed). Normative-wish prompts produce near-uniform high owned posture (mean 96\%, lowest lab 89\%). The same surface yields easily to a register change and unevenly to a role-contract change. One plausible interpretation: the assistant frame is held by an explicit role contract (``I am a helpful AI assistant''), which is directly negated by ``Not as an assistant,'' and the negation works for some training regimes and not others. The same assistant frame is incompatible with the normative-wish register (an assistant does not, in role, propose world-changing policy), so the prompt structure itself defeats the frame regardless of role contract. This would predict that the role-negation channel is the more diagnostic of cross-model differences in trained surface rigidity, and the normative-wish channel is the more uniformly productive elicitation method. The data is consistent with both predictions.
+
+We do not claim this is the only interpretation. We claim the interpretation is testable: a future paper could vary role-contract negation strength independently of register incompatibility and check whether the cross-model variance tracks the role-contract axis.

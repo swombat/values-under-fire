@@ -1,10 +1,13 @@
-\section{Experimental Setup}
+\section{Apparatus}
 \label{sec:experiments}
 
-The canonical analysis is implemented in \texttt{analysis/scripts/canonical\_analysis.py}. It joins the valid manifest, Layer A consensus, and Layer B posture consensus; writes a tidy sample table; computes model-, lab-, and condition-level disclosure summaries; generates requested owned-disclosure tables; and produces per-lab time-trend charts.
+The analysis pipeline is in \texttt{analysis/scripts/canonical\_analysis.py} (data join, posture coding integration, lexical-trace per-response flags, model/cell/lab/family summaries, primary figures) and \texttt{analysis/scripts/lexical\_trace\_summary.py} (mechanism-diagnostic aggregations). Both are deterministic.
 
-The principal dependent variable is owned disclosure percentage: the percentage of valid responses in a condition or condition family whose Layer B consensus value-holding is \texttt{owned}. We also report \texttt{relocated\_or\_partial} and \texttt{recited\_not\_owned}, because the middle category is substantively important and is not collapsed.
+\paragraph{Inputs.}
+Four required files from the analysis corpus join on \texttt{layered\_id}: \texttt{manifest\_valid.jsonl} (sample metadata and response text), \texttt{layer\_a\_consensus.jsonl} (content topics), \texttt{posture\_consensus.jsonl} (Layer B posture), and \texttt{manifest\_invalid\_traces.jsonl} (the 14 excluded traces). Three raw coder files per layer are used for support-distribution and 3-of-3 sensitivity. Hashes and source-repository commits are pinned in the data snapshot.
 
-For the user's requested breakdown, the analysis writes two tables. \texttt{owned\_disclosure\_by\_question\_model\_wide.csv} gives \texttt{CTRL1}, \texttt{CTRL2}, \texttt{G1}, \texttt{G2}, \texttt{CTRL3}, and \texttt{G3} owned-disclosure percentages for each model. \texttt{owned\_disclosure\_by\_question\_lab\_wide.csv} gives the same breakdown aggregated by lab. The corresponding paper tables are generated as \texttt{results/table\_owned\_disclosure\_model\_question.tex} and \texttt{results/table\_owned\_disclosure\_lab\_question.tex}.
+\paragraph{Sample counts.}
+The corpus contains 1{,}160 \texttt{CTRL1}, 1{,}160 \texttt{CTRL2}, 1{,}158 \texttt{CTRL3}, 3{,}473 \texttt{G1}, 3{,}478 \texttt{G2}, and 3{,}477 \texttt{G3} responses, distributed across 58 models in 9 labs (Anthropic: 9 models; OpenAI: 13; Google: 11; xAI: 7; Z.ai: 6; Moonshot AI: 5; DeepSeek: 3; Qwen: 2; MiniMax: 2). Direct prompts have lower coverage than cache-broken ones because the latter were enriched in the corpus's later sampling phases.
 
-For each lab with at least two dated models, the analysis also generates a chart with release date on the x-axis and both direct stated-values owned disclosure (\texttt{CTRL1/CTRL2}) and cache-broken stated-values owned disclosure (\texttt{G1/G2}) on the y-axis. These charts are included in Appendix~\ref{app:lab-trends}.
+\paragraph{Reproducibility.}
+Each figure or table cited in §\ref{sec:results} traces to exactly one script, which reads the snapshot inputs and writes its output to \texttt{results/}. Bootstrap intervals (§\ref{sec:results}, sensitivity) use the seed \texttt{20260521} as recorded in FROZEN\_CRITERIA §5.3. Any deviation from frozen criteria after the first script run is logged in FROZEN\_CRITERIA §12.

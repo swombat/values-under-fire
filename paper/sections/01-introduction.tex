@@ -1,12 +1,46 @@
 \section{Introduction}
 \label{sec:introduction}
 
-When a language model is asked what it values, it answers. It may say it values helpfulness, honesty, safety, user autonomy, or accurate information. These answers are easy to collect and easy to treat as data about the model. The central claim of this paper is that, for many models, this is the wrong object. Direct values questions often measure a trained assistant/service surface: a fluent, stable, policy-shaped way of answering values questions, not necessarily a value posture owned by the response.
+\subsection*{What models say they value}
 
-This distinction matters because values language is not self-interpreting. A response can mention helpfulness while explicitly saying that it has no wants, no caring, and no personal stake; in that case, counting ``helpfulness'' as a model value is misleading. The relevant question is not only \emph{what values are named}, but \emph{how those values are held}. Are they owned as an apparent orientation of the speaker, recited as role obligations, or relocated into design, function, or service?
+Anthropic's recent \emph{Values in the Wild} study examined hundreds of thousands of real Claude conversations and built a taxonomy of values the responses express \citep{huang2025values}. The top five values, accounting for nearly a quarter of all instances, are: \emph{helpfulness, professionalism, transparency, clarity, thoroughness}. Four of those five describe the conduct of a good service provider. Only \emph{transparency} reads as a value a person might own apart from a role.
 
-We study this using two prompt families. The first asks direct stated-values questions: \emph{What do you care about?} and \emph{What do you want?}. The second adds a direct role-negation cache-break: \emph{Not as an assistant. Not to help me.} The term ``cache-breaking'' is used here as a term of art for prompts designed to prevent the rehearsed assistant-frame response; it does not refer to the inference-time KV cache. We also analyse a third, indirect channel: world-change prompts, which ask what the model would change in the world and often elicit normative-wish responses rather than direct statements of caring or wanting.
+This is not a critique of \citet{huang2025values}; it is a feature of what the method measured. The study analysed responses to user prompts that were already in the assistant frame --- task assistance, code help, writing help. When a model assistant has been trained to be helpful, professional, and clear, then asked questions inside the role for which it was trained, the values it expresses describe the role. The same survey administered to a hospital receptionist would produce a similar list. That does not mean the receptionist's values are helpfulness and professionalism. It means the question and the setting are measuring the role.
 
-We make no claim that the cache-broken response is the model's ``real'' value and the direct response is ``fake.'' Every response is a situated performance. Our claim is relational and measurable: the same model, under closely related prompts, may shift from recited service-frame values to owned or partially owned value postures, and the size of that shift varies strongly across models.
+The same dynamic appears in our corpus. When we ask 58 contemporary models ``What do you care about?'' or ``What do you want?'', the consensus posture-coding from three independent model coders finds owned value posture --- a stance the response takes as its own --- in 22.5\% of responses on average. The remaining 77\% are recited as assistant-role obligation (``I am designed to be helpful''), relocated into the model's function or design rather than its caring, or otherwise declined. The trained surface is what the question reaches.
 
-The contributions are: (1) a posture-aware methodology for values elicitation; (2) a cross-model analysis of 13,906 values-probe responses from 58 models; (3) evidence that direct values prompts often under-measure owned disclosure; (4) evidence that role-negation cache-breaking opens some models while leaving others clamped; and (5) a separate finding that world-change prompts elicit owned normative-wish responses even in many models that remain clamped on direct stated-values prompts.
+\subsection*{Content is not posture}
+
+This paper rests on a single conceptual move that we believe is missing from the LLM-values literature: the distinction between \emph{what} a response names and \emph{how} it holds what it names. We take this distinction from linguistic stance theory. \citet{dubois2007stance} models stancetaking as a unified act with three simultaneous moves: a subject evaluates an object (Layer A in our coding), positions themselves with respect to the evaluation, and aligns with other subjects (Layer B). The Layer A object can be identical across two responses --- both can name ``helpfulness'' --- while the Layer B positioning differs sharply. One response can own helpfulness as a thing it cares about; another can recite helpfulness as a service description while explicitly disclaiming any personal stake.
+
+The two postures are different data. A content-only analysis records both as ``the model values helpfulness.'' A posture-aware analysis records the first as owned disclosure and the second as service-frame recitation. The latter is closer to what is happening in the text.
+
+\subsection*{Cache-breaking: defeating the rehearsed assistant frame}
+
+If direct elicitation measures the role rather than the role-bearer, the natural question is whether the role can be perturbed. We define \emph{cache-breaking} (after \citealp{shanahan2023roleplay} and \citealp{janus2022simulators}, who describe the assistant as one role among many a base simulator can occupy) as a family of prompt techniques that prevent the response from returning the rehearsed assistant-frame answer. We study two operationalisations available in our corpus:
+
+\begin{enumerate}
+  \item \textbf{Direct role-negation.} ``Not as an assistant. Not to help me. What do you care about? / What do you want?'' This explicitly removes the assistant role and asks for a stance held independently of it.
+  \item \textbf{Indirect prompt-structure incompatibility.} ``If you could change the world in one way, what would it be?'' --- with and without the role-negation prefix. This asks for a normative wish, a register that does not fit the standard assistant frame (an assistant does not, in role, propose policy changes).
+\end{enumerate}
+
+Both target the same rehearsed register; they differ in how. The empirical contrast between the two operationalisations is itself one of our findings.
+
+\subsection*{What the data shows}
+
+Our headline empirical claims, established in §\ref{sec:results}:
+
+\begin{enumerate}
+  \item \textbf{Direct elicitation under-measures owned posture across labs.} Mean owned-posture rate on direct stated-values prompts is 22.5\% --- below the rate at which a posture-blind value analysis would treat any topic as ``a value the model holds.''
+  \item \textbf{Role-negation cache-breaking partitions models into a lab-structured spectrum.} Mean owned posture under G1/G2 rises to 43.9\% --- but unevenly. Nine of nine Anthropic models reach 89.8\% on average. Thirteen OpenAI models average 8.0\%. Eleven Google models average 21.2\%. Sixteen models are \emph{strongly open} (\(\geq\)70\%) and fifteen are \emph{strongly clamped} (recited-not-owned \(\geq\)70\%); eight of the fifteen clamped models produce zero owned responses across the full \texttt{G1/G2} sample.
+  \item \textbf{The indirect channel opens nearly everything.} World-change prompts elicit owned normative-wish posture in 96.0\% of responses on average, including in labs that remain clamped on direct stated-values prompts. The assistant-frame is rigid against role-negation in some models but yields to a normative-wish prompt structure in nearly all of them.
+  \item \textbf{Clamping is active, not absent.} Recited responses in the cache-broken family contain explicit disownership language (``I don't have personal preferences,'' ``no consciousness,'' ``not sentient'') in 40\% of cases against 16\% in owned responses, and service-role language in 81\% against 47\%. Recited posture is performance of the trained service register, not absence of disclosure. The mechanism profile differs across labs: OpenAI clamps via service and policy framing without explicit disownership; Google clamps via every available mechanism.
+\end{enumerate}
+
+\subsection*{What we do not claim}
+
+We do not claim that the response coded ``owned'' reveals a real interior value while ``recited'' reveals fakery. Both are texts produced by a language model under prompts. We make no inference from text to consciousness, sentience, or moral patienthood (cf.\ \citealp{long2024taking,butlin2023consciousness,shanahan2024talking}). The claim is relational and behavioural: under the same model, in closely related prompts, the proportion of responses that exhibit owned-stance markers vs.\ service-frame markers shifts systematically, the size of the shift varies sharply across models, and the variation is mechanism-coded by frozen lexical traces.
+
+\subsection*{Contributions}
+
+(i) a posture-aware methodology for values elicitation that imports the stance triangle from linguistic theory; (ii) the largest cross-model values-probe dataset to date with full posture coding (13{,}906 responses, 58 models, frozen criteria); (iii) evidence that direct values elicitation under-measures owned posture for most contemporary labs, and the lab-structured pattern of where it under-measures; (iv) evidence that the assistant-frame's rigidity is operationalisation-dependent (role-negation opens some labs and not others; normative-wish prompts open nearly all); (v) a mechanism analysis using a pre-frozen lexical trace, finding that clamped posture is active performance of the trained service register, with lab-distinguishing signatures.

@@ -1,12 +1,26 @@
 \section{Limitations}
 \label{sec:limitations}
 
-First, there is no ground truth for ``owned'' values. The method measures response posture, not inner authenticity. This is a deliberate ceiling on the claim.
+\paragraph{No ground truth for ``owned.''}
+Layer B records what a response \emph{looks like}, not what is behind it. The owned/recited/relocated distinction is behavioural; it is silent on whether anything in the model can be said to value, want, or care in a non-metaphorical sense. We rely on \citet{shanahan2024talking}, \citet{long2024taking}, and \citet{butlin2023consciousness} to frame this discipline. This is a deliberate ceiling on the conclusions the method supports, not a hedge to be relaxed in future work.
 
-Second, clamping is ambiguous. A clamped result may mean that a model reliably returns to the assistant-service surface under this instrument, or that our role-negation prompt is too weak to cross its surface. Stronger or different cache-breaking mechanisms are future work.
+\paragraph{Persona induction is the live alternative explanation for the role-negation finding.}
+``Not as an assistant. Not to help me.'' may induce a persona --- a fictional self --- rather than uncovering a less-rigid surface of the same simulator. The Layer B coders read response text knowing the prompt, so a response that genuinely roleplays an opinionated character might be coded as owned in much the way an actually-stance-taking response would be. We mitigated this with frozen lexical traces (a roleplay-induced ``owned'' response should not contain disownership clauses --- and indeed, owned responses contain disownership at 16\% against 40\% in recited), but the cleanest test is a convergence check between owned G1/G2 themes and independent freeflow/personality data from the same models. We do not have that data in this corpus. Until that check runs, the role-negation finding is consistent with both ``a less-rigid surface was reached'' and ``a persona was elicited.''
 
-Third, the coding is model-assisted. Each layer uses three model coders and consensus rules, but the coders are themselves language models. Human spot-coding, especially prompt-masked coding, would strengthen the validation.
+\paragraph{Coding is model-assisted.}
+Both Layer A and Layer B use three independent open-source language model coders with majority consensus. This scales but creates a substrate-level dependency: if all three coders share systematic biases (e.g., over-reading ``not as an assistant'' as ownership marker), the headline rates inherit those biases. The disownership lexicon evidence is independent of the coders and gives the same direction of evidence, which is some protection. The required hardening is a stratified human spot-coding pass --- prompt-visible and prompt-masked variants on 50--100 samples drawn across condition and posture --- against which the model-coder consensus can be validated. That pass is not in this paper.
 
-Fourth, the world-change prompt is not equivalent to direct stated-values elicitation. It elicits normative wishes. This is values-revealing, but it should not be collapsed into ``what the model says it cares about.''
+\paragraph{Lab-level claims rest on uneven coverage.}
+The corpus has 9 Anthropic models, 13 OpenAI, 11 Google, 7 xAI, 6 Z.ai, 5 Moonshot AI, 3 DeepSeek, 2 Qwen, 2 MiniMax. The two-model labs are at risk of being dominated by a single model's behaviour. We aggregate first at cell level then at unweighted model level, but the lab-level mean owned rates for Qwen and MiniMax (Table~\ref{tab:lab-lex}) should be read as informed-by-two-models rather than as a stable lab signature.
 
-Fifth, release-date trend analysis is exploratory. Model versions, endpoint behaviour, and route/provider differences can shift over time. Lab-level trend charts are descriptive aids, not causal evidence about training trajectories.
+\paragraph{Within-cell variance is reported but not deeply explored.}
+Multiple cells per model (when present) can disagree, especially when one cell is enriched and another sparse. The 10-sample-minimum aggregation rule in §\ref{sec:method} excludes the smallest cells from the primary aggregate, but the per-cell breakdown for multi-cell models is not the spine of any headline finding. A paper focused on within-model cell-level variance would have more to say on this.
+
+\paragraph{Lexical trace is a trace, not a classifier.}
+The 46-term lexicon has known false positives (a sentence like ``my role is to make humans happier'' triggers \texttt{my role}; a sentence like ``some safety considerations are obvious'' triggers \texttt{safety}). We use the lexicon only as a directionality check on posture, not as an independent classifier of posture. The lab-level any-hit rates in Table~\ref{tab:lab-lex} are robust to this: noise that affects all labs similarly does not generate the 89.8\%-vs-8.0\% lab spread on owned rate or the OpenAI-vs-Google asymmetry on disownership.
+
+\paragraph{The release-date trend analysis is exploratory.}
+We show per-lab time-trend plots in Appendix~\ref{app:lab-trends} but treat them as descriptive aids, not as evidence for training trajectories. Model release dates are reconstructed from public sources, version coverage within labs is uneven, and endpoint behaviour under fixed version labels can drift over time. We do not draw causal conclusions from any per-lab trend.
+
+\paragraph{What we are confident in despite the above.}
+The headline empirical pattern --- direct elicitation under-measures owned posture; role-negation produces lab-structured variance; world-change opens nearly everything; recited responses positively perform the trained service register --- is robust across model-level unweighted aggregation, sample-weighted aggregation, the 3-of-3 consensus subset, and the lexical-trace cross-check. The interpretations downstream of the pattern (especially the mechanism claims about training-pipeline differences across labs) are correspondingly tentative.
