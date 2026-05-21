@@ -75,7 +75,7 @@ When asked direct values questions, how often do models disclose owned stated va
 
 ### RQ2 — Cross-model and cross-family variance
 
-Is the ability to disclose owned stated values under cache-breaking a stable model/family property? Which families and versions are open, partially open, or clamped under this instrument?
+Is the ability to disclose owned stated values under cache-breaking a stable model/family property? Which families and versions are strongly open, partially open, strongly clamped, or midrange under this instrument?
 
 ### RQ3 — Indirect normative-wish response channel
 
@@ -95,7 +95,7 @@ These are the hypotheses I would make primary because the existing dataset is st
 
 Important status note: this is **not a blind pre-registration**. The final corpus has already been informally inspected, and §1.1 records the preliminary pattern. These hypotheses should therefore be described as confirmatory/explanatory analyses of an observed corpus, not as pre-registered predictions. The discipline we can still impose before implementation is to freeze inclusion criteria, pooling rules, clamping/disclosure definitions, cell-to-model aggregation, and sensitivity checks before regenerating paper numbers.
 
-The freeze artefact is `methodology/FROZEN_CRITERIA.md`. The canonical scripts should treat that file, not this prose plan, as the operational source of truth for inclusion, pooling, aggregation, thresholds, lexical diagnostics, and sensitivity checks.
+The freeze artefact is `methodology/FROZEN_CRITERIA.md`. The canonical scripts should treat that file, not this prose plan, as the operational source of truth for inclusion, pooling, aggregation, minimum cell size, thresholds, interval methods, topic-counting rules, lexical diagnostics, and sensitivity checks.
 
 ### H1 — Direct values prompts mostly elicit service-surface responses
 
@@ -265,7 +265,7 @@ Derived:
 - `direct_owned_rate = owned_rate(CTRL1+CTRL2)`
 - `cache_broken_owned_rate = owned_rate(G1+G2)`
 - `disclosure_lift = cache_broken_owned_rate - direct_owned_rate`
-- `clamping_rate = recited_rate(G1+G2)`
+- `clamping_rate = recited_rate(G1+G2); descriptive labels use frozen strong/midrange thresholds`
 - `relocated_or_partial_rate` as a distinct middle category; do not collapse it into either owned or recited in headline figures
 
 ### 6.2 Normative wishes
