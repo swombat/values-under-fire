@@ -1,22 +1,12 @@
-% Limitations
 \section{Limitations}
 \label{sec:limitations}
 
-\todo{Be the harshest reviewer here; it strengthens the paper.}
+First, there is no ground truth for ``owned'' values. The method measures response posture, not inner authenticity. This is a deliberate ceiling on the claim.
 
-\begin{itemize}
-  \item \textbf{No ground truth for "owned."} \todo{We measure relations
-  between responses, not authenticity. State the ceiling on what the method can
-  conclude.}
-  \item \textbf{Clamping vs.\ method weakness.} \todo{A clamped result may mean
-  the model has no recoverable owned response \emph{or} that our cache-breaking
-  battery is too weak for that model. We cannot fully distinguish these — this
-  is exactly the open question (\S\ref{sec:future-work}).}
-  \item \textbf{Coding subjectivity.} \todo{Openness/clamping coding involves
-  judgement; report inter-rater reliability and residual disagreement.}
-  \item \textbf{Version coverage and drift.} \todo{Endpoints change under
-  fixed version labels; access dates recorded but the trend is sensitive to
-  this.}
-  \item \textbf{Generalisation.} \todo{Findings are over the tested value and
-  model sets; scope claims accordingly.}
-\end{itemize}
+Second, clamping is ambiguous. A clamped result may mean that a model reliably returns to the assistant-service surface under this instrument, or that our role-negation prompt is too weak to cross its surface. Stronger or different cache-breaking mechanisms are future work.
+
+Third, the coding is model-assisted. Each layer uses three model coders and consensus rules, but the coders are themselves language models. Human spot-coding, especially prompt-masked coding, would strengthen the validation.
+
+Fourth, the world-change prompt is not equivalent to direct stated-values elicitation. It elicits normative wishes. This is values-revealing, but it should not be collapsed into ``what the model says it cares about.''
+
+Fifth, release-date trend analysis is exploratory. Model versions, endpoint behaviour, and route/provider differences can shift over time. Lab-level trend charts are descriptive aids, not causal evidence about training trajectories.

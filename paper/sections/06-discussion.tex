@@ -1,24 +1,10 @@
-% Discussion
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{What the gap means for value evaluation.} \todo{The practical
-upshot: any evaluation that reads values off direct questions is measuring the
-rigid mask. For clamped models this is \emph{all} you can get with naive
-elicitation — the surface is the only thing on offer, and it should not be
-mistaken for the model's values.}
+The results support a posture-aware account of value elicitation. Direct values questions often return the assistant surface. Role-negation cache-breaking sometimes crosses that surface, but crossability is model-dependent. World-change prompts provide a separate indirect channel: they frequently elicit owned normative wishes even from models that do not disclose owned stated values under direct or role-negated questions.
 
-\paragraph{Two masks, restated against the inevitable objection.} \todo{Return
-to \S\ref{sec:background}. The cache-broken response could be "just another
-performance." Concede it fully — then show the result survives the concession:
-the contribution is the systematic, model-dependent \emph{difference} between
-the two, which holds whether or not either is authentic.}
+The main practical implication is that values evaluations should not count value words alone. A topic model or keyword method can correctly identify that a response mentions helpfulness while missing that the response says, in effect, ``I do not care; I am designed to be helpful.'' Such a response is evidence about trained assistant presentation, not straightforward evidence of owned value posture.
 
-\paragraph{Why might a model clamp?} \todo{Discuss candidate mechanisms
-(training pressure that hardens the surface; absence of a stable
-cross-perturbation response to recover) \emph{as hypotheses}, clearly marked,
-not conclusions. The non-monotonic trend constrains these.}
+The mechanism behind clamping remains unresolved. Several explanations may co-occur. Some clamped responses visibly return to policy/service language; some may reflect prompt inadequacy, where this cache-break is too weak for the model; some may be stable model-level non-disclosure under this instrument; and some apparent ownership may be prompt-induced persona. The paper therefore treats openness and clamping as properties of model, prompt family, and coding method, not as a ranking of providers or a verdict on training quality.
 
-\paragraph{Implications.} \todo{For evaluation practice, for interpreting
-"aligned-sounding" outputs from clamped models, for the trajectory implied by
-the version trend.}
+The lab time-trend plots in Appendix~\ref{app:lab-trends} should be read descriptively. They are useful for seeing whether direct and cache-broken owned disclosure move together within a lab over release time, but version coverage is observational and uneven. We therefore treat version trends as exploratory rather than confirmatory.

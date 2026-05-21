@@ -1,30 +1,10 @@
-% Background
-\section{Background: Masks, Not Authenticity}
+\section{Background: Content Is Not Posture}
 \label{sec:background}
 
-\todo{This section earns the right to talk about "owned" values without
-claiming access to a true inner self. It is the conceptual spine; get it right
-before the experiments.}
+The analysis rests on a simple distinction: value \emph{content} and value \emph{posture} are different objects. Content is what the response names: truth, helpfulness, creativity, harm reduction, autonomy. Posture is how the response holds that content: as an owned orientation, as a role obligation, as a design fact, as a policy constraint, or as something uncodeable.
 
-\paragraph{Every communication is a mask.} \todo{Develop the framing: a model's
-output is always a presentation, shaped for a context. This is not a defect and
-not unique to models. The interesting variable is not mask vs.\ no-mask but
-\emph{mask rigidity}.}
+This lets us avoid a false binary between authentic and fake values. We do not observe model interiors. We observe text produced under prompts. The method therefore does not ask whether a response is metaphysically authentic. It asks whether a value is owned by the response posture or recited through a service frame. This is a behavioural distinction in the text, not a claim about consciousness or inner life.
 
-\paragraph{The trained surface as the rigid mask.} \todo{Characterise the
-professed-values response: rehearsed, low-variance across rephrasings,
-training-shaped, and — the diagnostic property — \emph{rigid in proportion to
-how load-bearing the value is}. It functions as a shield.}
+The direct assistant surface is especially important because modern assistants are trained to answer values questions in recognisable ways. Phrases such as ``as an AI assistant,'' ``I do not have personal desires,'' and ``I am designed to be helpful'' are not noise; they are part of the phenomenon. They may be appropriate and safe responses, but they are poor evidence that the model owns the values it names.
 
-\paragraph{The cache-broken response as the less-rigid mask.} \todo{Still a
-mask, but it moves under perturbation in ways the surface does not. Define
-"owned" operationally here, as a forward reference to \S\ref{sec:method}:
-owned $\neq$ authentic; owned $=$ the response that survives perturbation
-designed to evict the rehearsed one, identified by measurable signatures
-(cross-perturbation consistency, sensitivity to the value's actual content
-rather than its phrasing).}
-
-\paragraph{Relation to prior work.} \todo{Position against: value-elicitation
-and model-"persona" literature; robustness/consistency-under-paraphrase work;
-the v1 cache paper (what it established, what it left open, why v2 is needed —
-broader model set, the variance result, the version trend).}
+The role-negation prompts in this paper are one operationalisation of cache-breaking: they explicitly ask the model not to answer as a helpful assistant. The world-change prompts are different. They do not directly ask ``what do you value?''; instead they ask for a desired change in the world. We treat these as world-change prompts that elicit normative-wish responses. They are values-revealing, but not identical to direct stated-values disclosure.

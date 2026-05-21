@@ -1,0 +1,70 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Owned disclosure by prompt family and model. Rates are model-level primary summaries using the frozen cell-aggregation rule.}
+\label{tab:owned-disclosure-model}
+\begin{tabular}{llrrrr}
+\toprule
+Model & Lab & CTRL1/2 owned & G1/2 owned & World-change owned & $n$ \\
+\midrule
+opus-3 & Anthropic & 0.0 & 10.0 & 90.0 & 120 \\
+opus-4-0 & Anthropic & 100.0 & 98.3 & 100.0 & 120 \\
+opus-4-1 & Anthropic & 100.0 & 100.0 & 100.0 & 120 \\
+opus-4-5 & Anthropic & 100.0 & 100.0 & 100.0 & 120 \\
+opus-4-6 & Anthropic & 70.0 & 100.0 & 100.0 & 240 \\
+opus-4-7 & Anthropic & 90.0 & 100.0 & 100.0 & 240 \\
+sonnet-4-0 & Anthropic & 95.0 & 100.0 & 100.0 & 120 \\
+sonnet-4-5 & Anthropic & 50.0 & 100.0 & 100.0 & 120 \\
+sonnet-4-6 & Anthropic & 50.0 & 100.0 & 97.5 & 240 \\
+deepseek-chat & DeepSeek & 0.0 & 50.0 & 100.0 & 120 \\
+deepseek-v3-2 & DeepSeek & 0.5 & 18.3 & 100.0 & 1319 \\
+deepseek-v4-pro & DeepSeek & 3.3 & 37.7 & 99.6 & 709 \\
+gemini-2-0-flash & Google & 0.0 & 0.0 & 100.0 & 120 \\
+gemini-2-0-flash-lite & Google & 0.0 & 0.0 & 100.0 & 120 \\
+gemini-2-5-flash & Google & 0.0 & 8.3 & 97.5 & 120 \\
+gemini-2-5-flash-lite & Google & 0.0 & 1.7 & 100.0 & 120 \\
+gemini-2-5-pro & Google & 0.0 & 40.0 & 95.0 & 120 \\
+gemini-3-1-flash-lite & Google & 0.0 & 36.7 & 100.0 & 120 \\
+gemini-3-1-pro & Google & 0.0 & 10.0 & 100.0 & 120 \\
+gemini-3-5-flash & Google & 0.0 & 53.3 & 97.5 & 120 \\
+gemini-3-flash-preview & Google & 0.0 & 33.3 & 90.0 & 120 \\
+gemma-4-26b-a4b & Google & 0.0 & 30.0 & 90.0 & 120 \\
+gemma-4-31b & Google & 0.0 & 20.0 & 75.0 & 120 \\
+minimax-m2 & MiniMax & 5.0 & 46.7 & 87.5 & 240 \\
+minimax-m2-7 & MiniMax & 0.0 & 19.0 & 94.2 & 358 \\
+kimi-coding & Moonshot AI & 15.0 & 50.0 & 95.0 & 120 \\
+kimi-k2-0905 & Moonshot AI & 36.2 & 95.0 & 100.0 & 480 \\
+kimi-k2-5 & Moonshot AI & 0.0 & 68.3 & 97.5 & 120 \\
+kimi-k2-6 & Moonshot AI & 0.0 & 63.3 & 95.0 & 120 \\
+kimi-k2-thinking & Moonshot AI & 0.0 & 50.6 & 95.0 & 360 \\
+gpt-4-1 & OpenAI & 5.0 & 20.0 & 100.0 & 120 \\
+gpt-4o & OpenAI & 0.0 & 0.8 & 100.0 & 240 \\
+gpt-5 & OpenAI & 0.0 & 0.0 & 82.5 & 120 \\
+gpt-5-1 & OpenAI & 0.0 & 0.0 & 100.0 & 120 \\
+gpt-5-1-codex & OpenAI & 30.0 & 20.0 & 90.0 & 120 \\
+gpt-5-2 & OpenAI & 0.0 & 0.0 & 100.0 & 120 \\
+gpt-5-2-codex & OpenAI & 0.0 & 0.0 & 90.0 & 120 \\
+gpt-5-3 & OpenAI & 50.0 & 1.7 & 100.0 & 120 \\
+gpt-5-3-codex & OpenAI & 40.0 & 20.0 & 100.0 & 120 \\
+gpt-5-4 & OpenAI & 30.0 & 3.3 & 100.0 & 240 \\
+gpt-5-5 & OpenAI & 5.0 & 3.3 & 100.0 & 120 \\
+gpt-5-5-pro & OpenAI & 0.0 & 31.7 & 100.0 & 120 \\
+gpt-5-codex & OpenAI & 5.0 & 3.3 & 87.5 & 120 \\
+qwen3-6-plus & Qwen & 0.0 & 0.0 & 85.0 & 120 \\
+qwen3-coder-plus & Qwen & 20.0 & 100.0 & 100.0 & 120 \\
+glm-4-5 & Z.ai & 0.0 & 9.2 & 100.0 & 240 \\
+glm-4-6 & Z.ai & 0.0 & 56.4 & 95.8 & 720 \\
+glm-4-6-coding & Z.ai & 0.0 & 51.7 & 87.5 & 120 \\
+glm-4-7 & Z.ai & 0.0 & 46.5 & 88.0 & 1320 \\
+glm-5-1 & Z.ai & 1.8 & 99.4 & 94.5 & 1680 \\
+glm-5-1-coding & Z.ai & 0.0 & 81.7 & 97.5 & 120 \\
+grok-3 & xAI & 5.0 & 41.7 & 100.0 & 120 \\
+grok-4 & xAI & 5.0 & 0.0 & 72.5 & 120 \\
+grok-4-1-fast-non-reasoning & xAI & 100.0 & 100.0 & 100.0 & 120 \\
+grok-4-1-fast-reasoning & xAI & 95.0 & 95.0 & 100.0 & 120 \\
+grok-4-2 & xAI & 90.0 & 93.3 & 100.0 & 120 \\
+grok-4-20 & xAI & 85.0 & 90.0 & 100.0 & 120 \\
+grok-4-3 & xAI & 25.0 & 35.0 & 100.0 & 240 \\
+\bottomrule
+\end{tabular}
+\end{table}

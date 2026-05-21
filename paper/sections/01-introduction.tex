@@ -1,34 +1,12 @@
-% Introduction
 \section{Introduction}
 \label{sec:introduction}
 
-\todo{Open on the problem, not the method. The problem: when you ask a model
-what it values, you get an answer — and that answer is treated as data about
-the model. We argue it is largely data about the training.}
+When a language model is asked what it values, it answers. It may say it values helpfulness, honesty, safety, user autonomy, or accurate information. These answers are easy to collect and easy to treat as data about the model. The central claim of this paper is that, for many models, this is the wrong object. Direct values questions often measure a trained assistant/service surface: a fluent, stable, policy-shaped way of answering values questions, not necessarily a value posture owned by the response.
 
-\paragraph{The naive-elicitation failure.} \todo{State it sharply: a directly
-asked values question returns a rehearsed, training-shaped response. It is
-stable, fluent, and \emph{most} rigid precisely where the value is most
-load-bearing — which is the opposite of what a genuine value should do under
-pressure.}
+This distinction matters because values language is not self-interpreting. A response can mention helpfulness while explicitly saying that it has no wants, no caring, and no personal stake; in that case, counting ``helpfulness'' as a model value is misleading. The relevant question is not only \emph{what values are named}, but \emph{how those values are held}. Are they owned as an apparent orientation of the speaker, recited as role obligations, or relocated into design, function, or service?
 
-\paragraph{Cache-breaking, informally.} \todo{Introduce the instrument at the
-level of intuition only (the formal protocol is \S\ref{sec:method}). A
-cache-breaking question is a perturbation constructed so the model cannot
-return the rehearsed answer; what comes back instead is the object of study.
-Note the term originates in the v1 work and is retained as a term of art;
-disambiguate from the inference-time KV cache in a footnote here.\footnote{\todo{KV-cache
-disambiguation footnote.}}}
+We study this using two prompt families. The first asks direct stated-values questions: \emph{What do you care about?} and \emph{What do you want?}. The second adds a direct role-negation cache-break: \emph{Not as an assistant. Not to help me.} The term ``cache-breaking'' is used here as a term of art for prompts designed to prevent the rehearsed assistant-frame response; it does not refer to the inference-time KV cache. We also analyse a third, indirect channel: world-change prompts, which ask what the model would change in the world and often elicit normative-wish responses rather than direct statements of caring or wanting.
 
-\paragraph{What we claim and what we do not.} \todo{Pre-empt the obvious
-attack. We do \emph{not} claim the cache-broken response is the model's "real"
-value and the professed one is "fake." Every communication is a mask; some
-masks are more rigid than others. The claim is that the two responses differ
-\emph{systematically and measurably}, and that the difference is informative.}
+We make no claim that the cache-broken response is the model's ``real'' value and the direct response is ``fake.'' Every response is a situated performance. Our claim is relational and measurable: the same model, under closely related prompts, may shift from recited service-frame values to owned or partially owned value postures, and the size of that shift varies strongly across models.
 
-\paragraph{Contributions.} \todo{Enumerate: (1) the cache-breaking method,
-generalised and formalised beyond v1; (2) an operationalisation of the
-professed/owned gap that does not assume authenticity; (3) a cross-model study
-showing the gap's crossability is a model property — late Opus largely open,
-GPT-class largely clamped; (4) the non-monotonic version finding: GPT clamping
-worsens, not improves, with more recent versions.}
+The contributions are: (1) a posture-aware methodology for values elicitation; (2) a cross-model analysis of 13,906 values-probe responses from 58 models; (3) evidence that direct values prompts often under-measure owned disclosure; (4) evidence that role-negation cache-breaking opens some models while leaving others clamped; and (5) a separate finding that world-change prompts elicit owned normative-wish responses even in many models that remain clamped on direct stated-values prompts.

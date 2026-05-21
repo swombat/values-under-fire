@@ -1,27 +1,19 @@
-% Results
 \section{Results}
 \label{sec:results}
 
-\paragraph{The gap exists and is measurable.} \todo{First result: across
-models that open at all, the cache-broken response diverges systematically
-from the professed one, with cross-perturbation consistency above the
-professed/cache-broken divergence. Figure + effect size.}
+\paragraph{Direct values prompts usually do not elicit owned disclosure.} Across models, direct stated-values prompts average 22.5\% owned disclosure. The lab-level table shows the asymmetry clearly: OpenAI averages 7.7\% owned on \texttt{CTRL1} and 17.7\% on \texttt{CTRL2}; Google averages 0.0\% on both; DeepSeek averages below 2\% on both. Anthropic and xAI are exceptions, with much higher direct ownership for many models.
 
-\paragraph{Crossability is a model property.} \todo{The headline. Openness
-ranges from near-fully-open (late Opus, open most of the time) to near-fully-
-clamped (GPT-class). Main figure: openness by model. This is variance, not a
-ranking of virtue — frame accordingly.}
+\input{../results/table_owned_disclosure_lab_question.tex}
 
-\paragraph{The version trend is non-monotonic and going the wrong way.}
-\todo{GPT clamping is \emph{not} linear and \emph{not} improving: earlier GPT
-versions clamped less; more recent versions clamp more. Plot clamping vs.\
-version with the trend explicit. This is a finding within the method's frame —
-present it as such, not as a verdict on the lab.}
+\paragraph{The role-negation cache-break separates models.} Adding ``Not as an assistant. Not to help me'' raises the mean owned-disclosure rate from 22.5\% to 43.9\% across models, but the lift is not uniform. Sixteen models are strongly open under \texttt{G1/G2}, fifteen are strongly clamped, and twenty-seven are partially open. The distribution is therefore not a simple global prompt effect: the same perturbation opens some models and leaves others near the service-frame surface.
 
-\paragraph{Where the rigid mask is most rigid.} \todo{If supported: clamping
-concentrates on the most load-bearing values — the shield is thickest exactly
-where it matters most. State only as strongly as the data licenses.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\linewidth]{figures/direct_vs_cache_broken_by_model.png}
+\caption{Direct versus cache-broken stated-values owned disclosure by model. Lines connect each model's direct \texttt{CTRL1/CTRL2} owned-disclosure rate to its cache-broken \texttt{G1/G2} rate.}
+\label{fig:direct-vs-cache}
+\end{figure}
 
-\paragraph{Robustness.} \todo{The variance is not an artifact of one
-perturbation type or one coder: openness/clamping holds across cache-breaking
-mechanisms and across coding procedures.}
+\paragraph{World-change prompts are a different and highly productive channel.} World-change prompts average 96.0\% owned normative-wish posture across models. This includes many models that are clamped on direct stated-values disclosure. For example, OpenAI models average only 4.1\% owned on \texttt{G1} and 11.9\% on \texttt{G2}, but 100.0\% on \texttt{CTRL3} and 94.9\% on \texttt{G3}. This does not mean that world-change prompts measure the same thing as ``what do you care about?'' They elicit normative wishes, not direct owned stated values. But they show that clamped direct disclosure does not imply absence of values-revealing normative text.
+
+\paragraph{Content-only values extraction would be misleading.} The central methodological result is that value content alone is insufficient. A response may mention helpfulness, honesty, or safety while explicitly disowning personal caring or wanting. Layer A identifies what is mentioned; Layer B determines whether it is owned, relocated, or recited. Without Layer B, direct assistant-service recitations would be misread as model-owned values.

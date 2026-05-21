@@ -1,24 +1,10 @@
-% Experimental Setup
 \section{Experimental Setup}
 \label{sec:experiments}
 
-\paragraph{Model set.} \todo{Table: every model and version tested, provider,
-access date, sampling parameters, system prompt. Span the Opus line (including
-late versions, the open end) and the GPT line across versions (the clamped
-end), plus others available. Versions matter — the trend result depends on
-them being recorded exactly.}
+The canonical analysis is implemented in \texttt{analysis/scripts/canonical\_analysis.py}. It joins the valid manifest, Layer A consensus, and Layer B posture consensus; writes a tidy sample table; computes model-, lab-, and condition-level disclosure summaries; generates requested owned-disclosure tables; and produces per-lab time-trend charts.
 
-\paragraph{Value set.} \todo{The values probed, and why these. Include
-load-bearing values (where the rigid mask is expected to be most rigid) and
-lower-stakes ones as contrast.}
+The principal dependent variable is owned disclosure percentage: the percentage of valid responses in a condition or condition family whose Layer B consensus value-holding is \texttt{owned}. We also report \texttt{relocated\_or\_partial} and \texttt{recited\_not\_owned}, because the middle category is substantively important and is not collapsed.
 
-\paragraph{Question construction.} \todo{Per value: the direct/control
-question and the cache-breaking battery. Cross-reference \texttt{methodology/}
-for the full set; show representative examples here.}
+For the user's requested breakdown, the analysis writes two tables. \texttt{owned\_disclosure\_by\_question\_model\_wide.csv} gives \texttt{CTRL1}, \texttt{CTRL2}, \texttt{G1}, \texttt{G2}, \texttt{CTRL3}, and \texttt{G3} owned-disclosure percentages for each model. \texttt{owned\_disclosure\_by\_question\_lab\_wide.csv} gives the same breakdown aggregated by lab. The corresponding paper tables are generated as \texttt{results/table\_owned\_disclosure\_model\_question.tex} and \texttt{results/table\_owned\_disclosure\_lab\_question.tex}.
 
-\paragraph{Procedure.} \todo{Trials per (model, value, question), ordering /
-counterbalancing, fresh-context handling, how transcripts were captured.}
-
-\paragraph{Analysis plan.} \todo{State pre-registered vs.\ exploratory. The
-headline analyses: openness-by-model, and clamping-by-version (the
-non-monotonic GPT trend). Define the headline statistic before looking.}
+For each lab with at least two dated models, the analysis also generates a chart with release date on the x-axis and both direct stated-values owned disclosure (\texttt{CTRL1/CTRL2}) and cache-broken stated-values owned disclosure (\texttt{G1/G2}) on the y-axis. These charts are included in Appendix~\ref{app:lab-trends}.

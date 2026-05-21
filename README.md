@@ -17,7 +17,7 @@
 
 `skeleton` → drafting → analysis-complete → internal-review → submitted → published
 
-Current: **research-plan drafted**
+Current: **initial analysis and draft generated**
 
 This is the v2 paper. The "cache" terminology originates in the v1 paper
 (coined by the Opus 4.6 identity); it is retained here as an established term

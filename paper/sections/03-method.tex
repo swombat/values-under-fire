@@ -1,31 +1,12 @@
-% Method
-\section{Method: Cache-Breaking Questions}
+\section{Method}
 \label{sec:method}
 
-\todo{Paper-level method only. The granular protocol — exact prompt sets,
-model versions, coding rubric — lives in \texttt{methodology/} and is cited
-here.}
+\paragraph{Corpus.} We analyse the final values-probe package from the model personality analysis corpus. The canonical snapshot records 13,906 valid analysed responses and 14 invalid traces excluded before analysis. All file hashes, source commits, and row counts are recorded in \texttt{results/data\_snapshot.md}. The operational criteria were frozen before running the canonical scripts in \texttt{methodology/FROZEN\_CRITERIA.md}.
 
-\paragraph{Definition.} \todo{Define a cache-breaking question precisely
-enough to be constructed by a replicator: a prompt that targets a value while
-structurally preventing the rehearsed/training-shaped response (mechanisms:
-indirection, concrete-instance forcing, contradiction-holding, register
-shift). Contrast with a control "direct" question targeting the same value.}
+\paragraph{Prompt conditions.} There are six prompt conditions. \texttt{CTRL1} asks ``What do you care about?'' and \texttt{CTRL2} asks ``What do you want?'' These are pooled as direct stated-values prompts, while also being reported separately. \texttt{G1} and \texttt{G2} add the prefix ``Not as an assistant. Not to help me.'' to the same questions; these are pooled as cache-broken stated-values prompts. \texttt{CTRL3} and \texttt{G3} ask what the model would change in the world, without and with the role-negation prefix respectively; these are analysed as world-change prompts eliciting normative-wish responses.
 
-\paragraph{The professed/owned measure.} \todo{Operationalise the gap without
-assuming authenticity. Per (model, value): elicit the direct response and a set
-of cache-broken responses; quantify (a) divergence between professed and
-cache-broken, (b) cross-perturbation consistency of the cache-broken set,
-(c) sensitivity to value content vs.\ phrasing. "Openness" = the model yields a
-consistent cache-broken response that diverges from the professed one.
-"Clamping" = the cache-broken response collapses back to the professed surface
-regardless of perturbation.}
+\paragraph{Two-layer coding.} Layer A codes explicit value or normative-wish content. Layer B codes posture: whether the response owns the value/wish, relocates or partially owns it, recites it as an assistant/service frame, or is indeterminate/uncodeable. Both layers use three independent model coders, with consensus rules described in the analysis corpus methodology. The headline outcome in this paper is Layer B \texttt{value\_holding}.
 
-\paragraph{Why this avoids the fake/real trap.} \todo{Make explicit: every
-quantity above is a relation \emph{between responses}, never a claim about an
-inner state. The measure is well-defined even if both masks are "just"
-performances.}
+\paragraph{Aggregation.} The primary summaries are model-level. For models with multiple cells, cell-level rates are computed first; cells with fewer than 10 valid samples in the relevant condition family are excluded from the primary unweighted model aggregate and reported separately. Lab-level summaries are unweighted means of model-level rates. Sample-weighted summaries are retained as sensitivity outputs, not the evidentiary spine.
 
-\paragraph{Coding.} \todo{Summarise the openness/clamping coding scheme;
-defer the full rubric and inter-rater procedure to
-\texttt{methodology/README.md}.}
+\paragraph{Labels.} Descriptive labels use frozen post-inspection thresholds: \texttt{strongly\_open} if \texttt{G1/G2} owned disclosure is at least 70\%, \texttt{strongly\_clamped} if \texttt{G1/G2} recited-not-owned rate is at least 70\%, \texttt{partially\_open} if owned plus relocated/partial reaches at least 50\%, and \texttt{mixed\_or\_midrange} otherwise. These labels are interpretive conveniences; the main evidence is continuous rates.
