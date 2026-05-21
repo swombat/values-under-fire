@@ -27,6 +27,7 @@ of art. See `notes/` for the KV-cache disambiguation decision.
 ## Current planning documents
 
 - Full research plan for review: `methodology/RESEARCH_PLAN.md`
+- Frozen pre-implementation criteria: `methodology/FROZEN_CRITERIA.md`
 - Detailed method placeholder/source-of-truth draft: `methodology/README.md`
 
 ## Repository layout
