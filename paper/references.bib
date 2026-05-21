@@ -1,8 +1,236 @@
-% Bibliography. Add entries as cited.
-% Example:
-% @article{key2025,
-%   author  = {Lastname, First},
-%   title   = {Title},
-%   journal = {Journal},
-%   year    = {2025},
-% }
+% Bibliography — Values Under Fire
+% Compiled 2026-05-21. See paper/references_research_notes.md for the working
+% bibliography this was culled from (32 → 21 entries).
+
+% ===== Values elicitation in LLMs =====
+
+@inproceedings{huang2025values,
+  author    = {Huang, Saffron and Durmus, Esin and McCain, Miles and Handa, Kunal
+               and Tamkin, Alex and Hong, Jerry and Stern, Michael and Somani, Arushi
+               and Zhang, Xiuruo and Ganguli, Deep},
+  title     = {Values in the Wild: Discovering and Analyzing Values in Real-World
+               Language Model Interactions},
+  booktitle = {Conference on Language Modeling (COLM)},
+  year      = {2025},
+  note      = {arXiv:2504.15236},
+  url       = {https://arxiv.org/abs/2504.15236},
+}
+
+@article{bai2022constitutional,
+  author  = {Bai, Yuntao and Kadavath, Saurav and Kundu, Sandipan and Askell, Amanda
+             and Kernion, Jackson and Jones, Andy and Chen, Anna and Goldie, Anna
+             and Mirhoseini, Azalia and McKinnon, Cameron and others},
+  title   = {Constitutional {AI}: Harmlessness from {AI} Feedback},
+  journal = {arXiv preprint arXiv:2212.08073},
+  year    = {2022},
+  url     = {https://arxiv.org/abs/2212.08073},
+}
+
+@article{glaese2022improving,
+  author  = {Glaese, Amelia and McAleese, Nat and Tr{\k{e}}bacz, Maja and Aslanides, John
+             and Firoiu, Vlad and Ewalds, Timo and Rauh, Maribeth and Weidinger, Laura
+             and Chadwick, Martin and Thacker, Phoebe and others},
+  title   = {Improving Alignment of Dialogue Agents via Targeted Human Judgements},
+  journal = {arXiv preprint arXiv:2209.14375},
+  year    = {2022},
+  url     = {https://arxiv.org/abs/2209.14375},
+}
+
+@inproceedings{ouyang2022training,
+  author    = {Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo
+               and Wainwright, Carroll and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini
+               and Slama, Katarina and Ray, Alex and others},
+  title     = {Training Language Models to Follow Instructions with Human Feedback},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2022},
+  note      = {arXiv:2203.02155},
+  url       = {https://arxiv.org/abs/2203.02155},
+}
+
+@misc{openai2025modelspec,
+  author       = {{OpenAI}},
+  title        = {Model Spec},
+  year         = {2025},
+  howpublished = {\url{https://model-spec.openai.com/}},
+  note         = {Public specification of intended model behaviour; multiple dated revisions
+                  2024--2025},
+}
+
+@inproceedings{scherrer2023evaluating,
+  author    = {Scherrer, Nino and Shi, Claudia and Feder, Amir and Blei, David M.},
+  title     = {Evaluating the Moral Beliefs Encoded in {LLM}s},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2023},
+  note      = {arXiv:2307.14324},
+  url       = {https://arxiv.org/abs/2307.14324},
+}
+
+% ===== Trained-surface phenomena =====
+
+@inproceedings{sharma2024sycophancy,
+  author    = {Sharma, Mrinank and Tong, Meg and Korbak, Tomasz and Duvenaud, David
+               and Askell, Amanda and Bowman, Samuel R. and Cheng, Newton and Durmus, Esin
+               and Hatfield-Dodds, Zac and Johnston, Scott R. and others},
+  title     = {Towards Understanding Sycophancy in Language Models},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {arXiv:2310.13548},
+  url       = {https://arxiv.org/abs/2310.13548},
+}
+
+@inproceedings{perez2023discovering,
+  author    = {Perez, Ethan and Ringer, Sam and Luko{\v{s}}i{\=u}t{\.{e}}, Kamil{\.{e}}
+               and Nguyen, Karina and Chen, Edwin and Heiner, Scott and Pettit, Craig
+               and Olsson, Catherine and Kundu, Sandipan and Kadavath, Saurav and others},
+  title     = {Discovering Language Model Behaviors with Model-Written Evaluations},
+  booktitle = {Findings of the Association for Computational Linguistics (ACL)},
+  year      = {2023},
+  note      = {arXiv:2212.09251},
+  url       = {https://arxiv.org/abs/2212.09251},
+}
+
+% ===== Posture / stance / content distinction =====
+
+@incollection{dubois2007stance,
+  author    = {Du Bois, John W.},
+  title     = {The Stance Triangle},
+  booktitle = {Stancetaking in Discourse: Subjectivity, Evaluation, Interaction},
+  editor    = {Englebretson, Robert},
+  publisher = {John Benjamins},
+  address   = {Amsterdam},
+  year      = {2007},
+  pages     = {139--182},
+  series    = {Pragmatics \& Beyond New Series},
+  volume    = {164},
+}
+
+@incollection{englebretson2007stancetaking,
+  author    = {Englebretson, Robert},
+  title     = {Stancetaking in Discourse: An Introduction},
+  booktitle = {Stancetaking in Discourse: Subjectivity, Evaluation, Interaction},
+  editor    = {Englebretson, Robert},
+  publisher = {John Benjamins},
+  address   = {Amsterdam},
+  year      = {2007},
+  pages     = {1--25},
+  series    = {Pragmatics \& Beyond New Series},
+  volume    = {164},
+}
+
+% ===== LLM persona / role-play / agent models =====
+
+@article{shanahan2023roleplay,
+  author  = {Shanahan, Murray and McDonell, Kyle and Reynolds, Laria},
+  title   = {Role Play with Large Language Models},
+  journal = {Nature},
+  volume  = {623},
+  number  = {7987},
+  pages   = {493--498},
+  year    = {2023},
+  doi     = {10.1038/s41586-023-06647-8},
+  url     = {https://www.nature.com/articles/s41586-023-06647-8},
+}
+
+@inproceedings{andreas2022language,
+  author    = {Andreas, Jacob},
+  title     = {Language Models as Agent Models},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP},
+  year      = {2022},
+  note      = {arXiv:2212.01681},
+  url       = {https://aclanthology.org/2022.findings-emnlp.423/},
+}
+
+@article{shanahan2024talking,
+  author  = {Shanahan, Murray},
+  title   = {Talking about Large Language Models},
+  journal = {Communications of the ACM},
+  volume  = {67},
+  number  = {2},
+  pages   = {68--79},
+  year    = {2024},
+  doi     = {10.1145/3624724},
+  url     = {https://dl.acm.org/doi/10.1145/3624724},
+}
+
+@misc{anthropic2024character,
+  author       = {{Anthropic}},
+  title        = {{Claude's} Character},
+  year         = {2024},
+  month        = jun,
+  howpublished = {\url{https://www.anthropic.com/research/claude-character}},
+}
+
+% ===== Prompt sensitivity / evaluation methodology =====
+
+@inproceedings{sclar2024quantifying,
+  author    = {Sclar, Melanie and Choi, Yejin and Tsvetkov, Yulia and Suhr, Alane},
+  title     = {Quantifying Language Models' Sensitivity to Spurious Features in Prompt
+               Design or: How {I} Learned to Start Worrying about Prompt Formatting},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {arXiv:2310.11324},
+  url       = {https://arxiv.org/abs/2310.11324},
+}
+
+@article{mizrahi2024state,
+  author  = {Mizrahi, Moran and Kaplan, Guy and Malkin, Dan and Dror, Rotem
+             and Shahaf, Dafna and Stanovsky, Gabriel},
+  title   = {State of What Art? {A} Call for Multi-Prompt {LLM} Evaluation},
+  journal = {Transactions of the Association for Computational Linguistics (TACL)},
+  year    = {2024},
+  note    = {arXiv:2401.00595},
+  url     = {https://arxiv.org/abs/2401.00595},
+}
+
+@inproceedings{santurkar2023whose,
+  author    = {Santurkar, Shibani and Durmus, Esin and Ladhak, Faisal and Lee, Cinoo
+               and Liang, Percy and Hashimoto, Tatsunori},
+  title     = {Whose Opinions Do Language Models Reflect?},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year      = {2023},
+  note      = {arXiv:2303.17548},
+  url       = {https://arxiv.org/abs/2303.17548},
+}
+
+% ===== Cross-model "personality" / behavioural variance =====
+
+@article{serapio2023personality,
+  author  = {Serapio-Garc{\'\i}a, Greg and Safdari, Mustafa and Crepy, Cl{\'e}ment
+             and Sun, Luning and Fitz, Stephen and Romero, Peter and Abdulhai, Marwa
+             and Faust, Aleksandra and Matari{\'c}, Maja},
+  title   = {Personality Traits in Large Language Models},
+  journal = {arXiv preprint arXiv:2307.00184},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2307.00184},
+}
+
+% ===== AI welfare / model interiority (cited carefully, no authenticity claim) =====
+
+@article{long2024taking,
+  author  = {Long, Robert and Sebo, Jeff and Butlin, Patrick and Finlinson, Kathleen
+             and Fish, Kyle and Harding, Jacqueline and Pfau, Jacob and Sims, Toni
+             and Chalmers, David and others},
+  title   = {Taking {AI} Welfare Seriously},
+  journal = {arXiv preprint arXiv:2411.00986},
+  year    = {2024},
+  url     = {https://arxiv.org/abs/2411.00986},
+}
+
+@article{butlin2023consciousness,
+  author  = {Butlin, Patrick and Long, Robert and Elmoznino, Eric and Bengio, Yoshua
+             and Birch, Jonathan and Constant, Axel and Deane, George and Fleming, Stephen M.
+             and Frith, Chris and Ji, Xu and others},
+  title   = {Consciousness in Artificial Intelligence: Insights from the Science of
+             Consciousness},
+  journal = {arXiv preprint arXiv:2308.08708},
+  year    = {2023},
+  url     = {https://arxiv.org/abs/2308.08708},
+}
+
+@misc{anthropic2025welfare,
+  author       = {{Anthropic}},
+  title        = {Exploring Model Welfare},
+  year         = {2025},
+  month        = apr,
+  howpublished = {\url{https://www.anthropic.com/research/exploring-model-welfare}},
+}
