@@ -1,4 +1,5 @@
-# LaTeX build artifacts
+# LaTeX build artifacts (intermediate only — the compiled paper PDF IS committed,
+# matching the sibling paper repos, so the released/Zenodo archive contains the paper)
 *.aux
 *.bbl
 *.blg
@@ -13,7 +14,6 @@
 *.nav
 *.snm
 *.vrb
-paper/main.pdf
 
 # Python
 __pycache__/
