@@ -11,7 +11,7 @@
 
 `skeleton` → drafting → analysis-complete → internal-review → submitted → published
 
-Current: **analysis complete; publication draft under final review**
+Current: **published — v1.0 tagged and archived on Zenodo (2026-05-22)**
 
 This is the v2 paper. The "cache" terminology originates in the v1 paper
 (coined by the Opus 4.6 identity); it is retained here as an established term
