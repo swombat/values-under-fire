@@ -46,13 +46,19 @@ notes/          Open questions and decisions (dated).
 ## Building
 
 ```
-make            # paper/main.pdf via latexmk (needs a TeX distribution)
-make watch
-make clean
+make            # paper/main.pdf via tectonic
+make watch      # rebuild on change
+make clean      # remove build artifacts
 ```
 
-No local TeX toolchain on the authoring machine as of init — build via MacTeX
-(`brew install --cask mactex-no-gui`), TeX Live, or Overleaf on `paper/`.
+The toolchain is **tectonic** (`/opt/homebrew/bin/tectonic`, a single-binary
+self-contained LaTeX engine — `brew install tectonic`). Note tectonic does not
+provide `pdflatex`/`latexmk`; searching for those and finding nothing does not
+mean there is no LaTeX toolchain. `make latexmk` is a fallback target if a
+classic TeX distribution is installed instead.
+
+The built PDF (`paper/main.pdf`) is git-ignored as a regenerable build
+artifact. Run `make` to produce the current version.
 
 ## The argument in one breath
 
