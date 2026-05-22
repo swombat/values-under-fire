@@ -1,11 +1,11 @@
 # Data snapshot — Values Under Fire
 
-Generated: 2026-05-21T19:21:59
+Generated: 2026-05-22T12:55:22
 
 ## Repositories
 
-- values-under-fire: `/Users/danieltenner/dev/research/values-under-fire` @ `931483491edf29ac2426a4fc37dca630759acd56`
-- model-personality-analysis-corpus: `/Users/danieltenner/dev/research/model-personality-analysis-corpus` @ `e7c872c6088144c07dd4645268ea489c87c693e0`
+- values-under-fire: `/Users/danieltenner/dev/research/values-under-fire` @ `d40d99b96e4d906e0614bb1718b4bf69ea9e7cd3`
+- model-personality-analysis-corpus: `/Users/danieltenner/dev/research/model-personality-analysis-corpus` @ `9fb17c011576b4de873cf61856cb693da0ef2833`
 - model-personality-corpus-v2: `/Users/danieltenner/dev/research/model-personality-corpus-v2` @ `c5af0c28cde2335c7508ee4253a3414b2763f841`
 - corpus-v2 latest tag: `v1.2.1`
 
@@ -42,6 +42,14 @@ Generated: 2026-05-21T19:21:59
 | G2 | 3,478 |
 | G3 | 3,477 |
 
+## Model alias normalization
+
+The analysis aggregates known alternate labels for the same underlying model at model level, while preserving source cells in the tidy table.
+
+| source model | canonical model |
+|---|---|
+| `grok-4-20` | `grok-4-2` |
+
 ## Counts by lab
 
 | lab | models | rows |
@@ -54,4 +62,4 @@ Generated: 2026-05-21T19:21:59
 | OpenAI | 13 | 1,800 |
 | Qwen | 2 | 240 |
 | Z.ai | 6 | 4,200 |
-| xAI | 7 | 960 |
+| xAI | 6 | 960 |

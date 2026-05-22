@@ -291,3 +291,4 @@ Record any changes here.
 
 | date | changed criterion | reason | affected outputs |
 |---|---|---|---|
+| 2026-05-22 | Added model-alias normalization: `grok-4-20` is aggregated into `grok-4-2` as the same underlying model, while preserving source cells separately. | Hygiene review caught that the raw corpus contained both labels for the same Grok 4.2/4.20 model. Treating them as separate models overstated model count by one and gave xAI one extra model-level point. | Canonical model count changes from 58 to 57; xAI model count from 7 to 6; corpus-level direct/cache-broken/world-change means and xAI lab summaries shift slightly. |

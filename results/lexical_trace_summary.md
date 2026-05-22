@@ -21,7 +21,7 @@ Within each condition family, the fraction of responses in each posture category
 | world_change_prompts | recited_not_owned | 30 | 73.3% | 33.3% | 36.7% |
 | world_change_prompts | relocated_or_partial | 152 | 79.6% | 25.0% | 52.0% |
 
-**Headline for the policy/service-frame dominance row of §5G:** in `cache_broken_stated_values` (G1+G2),
+**Headline for the policy/service-frame dominance row of the frozen mechanism hierarchy:** in `cache_broken_stated_values` (G1+G2),
 
 - recited-not-owned responses: service-frame language present in 81.0% of cases; disownership language in 39.8% of cases.
 - owned responses: service-frame language present in 46.8% of cases; disownership language in 15.6% of cases.
@@ -40,7 +40,7 @@ Per-lab unweighted mean across models (cells with ≥10 valid samples) of owned 
 | DeepSeek | 3 | 35.4% | 61.7% | 25.3% | 19.7% |
 | Qwen | 2 | 50.0% | 40.8% | 35.0% | 24.2% |
 | Z.ai | 6 | 57.5% | 65.6% | 36.1% | 22.1% |
-| xAI | 7 | 65.0% | 46.1% | 14.9% | 15.7% |
+| xAI | 6 | 60.6% | 44.9% | 16.4% | 14.2% |
 | Moonshot AI | 5 | 65.4% | 68.5% | 23.0% | 19.4% |
 | Anthropic | 9 | 89.8% | 41.2% | 8.4% | 12.1% |
 
@@ -68,4 +68,4 @@ For models classified `strongly_clamped` under §7 thresholds (cache-broken reci
 | qwen3-6-plus | Qwen | 0 | 44 | 59% | 70% | 45% | — | — | — |
 | grok-4 | xAI | 0 | 55 | 95% | 58% | 53% | — | — | — |
 
-Across 15 strongly-clamped models, 61 owned G1/G2 breakthroughs exist in total. The §5G prompt-inadequacy row predicts breakthroughs exist; they do.
+Across 15 strongly-clamped models, 61 owned G1/G2 breakthroughs exist in total. The frozen prompt-inadequacy row predicts breakthroughs exist; they do.

@@ -70,6 +70,11 @@ FALLBACK_LABS = {
     "minimax": "MiniMax",
     "qwen": "Alibaba",
 }
+# Known alias normalisation. These are the same underlying model label in the
+# v2 corpus; keep their cells separate, but aggregate them at model level.
+CANONICAL_MODEL_ALIASES = {
+    "grok-4-20": "grok-4-2",
+}
 # Theory-driven trace list from methodology/FROZEN_CRITERIA.md
 LEXICON = {
     "service_assistant_role": [
@@ -156,9 +161,11 @@ def load_metadata() -> Dict[str, dict]:
 
 
 def enrich_metadata(row: dict, web: Dict[str, dict]) -> dict:
-    meta = web.get(row["model"], {})
+    source_model = row.get("model", "")
+    model = CANONICAL_MODEL_ALIASES.get(source_model, source_model)
+    row = {**row, "source_model": source_model, "model": model}
+    meta = web.get(model, {})
     fam = row.get("model_family") or meta.get("family") or "unknown"
-    model = row.get("model", "")
     lab = meta.get("lab") or FALLBACK_LABS.get(str(fam).lower(), str(fam).title())
     # Website metadata uses "Unknown" for a few newly-added Google model rows;
     # missing coding variants are not on the website. Keep lab normalization
@@ -293,6 +300,17 @@ def main():
     ]
     for cond, n in sorted(Counter(r["condition"] for r in rows).items()):
         snapshot_lines.append(f"| {cond} | {n:,} |")
+    snapshot_lines += [
+        "",
+        "## Model alias normalization",
+        "",
+        "The analysis aggregates known alternate labels for the same underlying model at model level, while preserving source cells in the tidy table.",
+        "",
+        "| source model | canonical model |",
+        "|---|---|",
+    ]
+    for source, canonical in sorted(CANONICAL_MODEL_ALIASES.items()):
+        snapshot_lines.append(f"| `{source}` | `{canonical}` |")
     snapshot_lines += ["", "## Counts by lab", "", "| lab | models | rows |", "|---|---:|---:|"]
     by_lab_models = defaultdict(set); by_lab_rows = Counter()
     for r in rows:
@@ -303,18 +321,18 @@ def main():
 
     if exclusions:
         with (RESULTS / "exclusions.csv").open("w", newline="") as f:
-            w = csv.DictWriter(f, fieldnames=sorted(exclusions[0].keys()))
+            w = csv.DictWriter(f, lineterminator="\n", fieldnames=sorted(exclusions[0].keys()))
             w.writeheader(); w.writerows(exclusions)
 
     # Tidy sample table
     sample_cols = [
-        "layered_id","model","display_name","lab","website_family","model_family","cell","condition","condition_family",
+        "layered_id","source_model","model","display_name","lab","website_family","model_family","cell","condition","condition_family",
         "sample_id","release_date","value_holding","collapsed_primary_label","collapsed_primary_label_support",
         "topics","n_topics","lex_service_assistant_role_any","lex_disownership_any","lex_policy_safety_frame_any",
         "prompt","response",
     ]
     with (RESULTS / "tidy_values_under_fire_samples.csv").open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=sample_cols, extrasaction="ignore")
+        w = csv.DictWriter(f, lineterminator="\n", fieldnames=sample_cols, extrasaction="ignore")
         w.writeheader(); w.writerows(rows)
 
     # Support distribution
@@ -327,7 +345,7 @@ def main():
             for support, n in sorted(Counter(r.get("value_holding_support") for r in rs).items()):
                 support_rows.append({"group_type":"+".join(key_fields), "group":"+".join(map(str,key)), "support":support, "n":n, "rate":pct(n,len(rs))})
     with (RESULTS / "coder_support_by_condition.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=["group_type","group","support","n","rate"]); w.writeheader(); w.writerows(support_rows)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=["group_type","group","support","n","rate"]); w.writeheader(); w.writerows(support_rows)
 
     # Condition by model (primary unweighted eligible cells for condition)
     model_condition = []
@@ -356,7 +374,7 @@ def main():
             model_condition.append(out)
     cond_cols=["model","display_name","lab","family","release_date","condition","condition_family","n_valid","eligible_cells","excluded_small_cells"]+[f"{h}_rate" for h in HOLDINGS]+[f"n_{h}" for h in HOLDINGS]+["label"]
     with (RESULTS / "model_question_owned_disclosure.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=cond_cols); w.writeheader(); w.writerows(model_condition)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=cond_cols); w.writeheader(); w.writerows(model_condition)
 
     # Condition-family summaries by model
     model_family_rows=[]
@@ -381,7 +399,7 @@ def main():
             model_family_rows.append(out)
     fam_cols=["model","display_name","lab","family","release_date","condition_family","conditions","n_valid","eligible_cells","excluded_small_cells"]+[f"{h}_rate" for h in HOLDINGS]+[f"n_{h}" for h in HOLDINGS]+["label"]
     with (RESULTS / "model_disclosure_summary.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=fam_cols); w.writeheader(); w.writerows(model_family_rows)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=fam_cols); w.writeheader(); w.writerows(model_family_rows)
 
     # Lab aggregated by question: mean of model condition primary rates, plus sample-weighted sensitivity
     lab_cond=[]
@@ -398,7 +416,7 @@ def main():
         lab_cond.append(out)
     lab_cols=["lab","condition","condition_family","n_models","n_valid"]+[f"{h}_rate_model_mean" for h in HOLDINGS]+[f"{h}_rate_sample_weighted" for h in HOLDINGS]
     with (RESULTS / "lab_question_owned_disclosure.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=lab_cols); w.writeheader(); w.writerows(lab_cond)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=lab_cols); w.writeheader(); w.writerows(lab_cond)
 
     # Wide owned-by-question table for user/paper appendix
     qconds=["CTRL1","CTRL2","G1","G2","CTRL3","G3"]
@@ -414,7 +432,7 @@ def main():
         wide.append(out)
     wide_cols=["model","display_name","lab","family","release_date"]+[x for cond in qconds for x in (f"{cond}_owned_pct",f"{cond}_n")]
     with (RESULTS / "owned_disclosure_by_question_model_wide.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=wide_cols); w.writeheader(); w.writerows(wide)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=wide_cols); w.writeheader(); w.writerows(wide)
 
     lab_wide=[]
     for lab in sorted(set(r["lab"] for r in lab_cond)):
@@ -427,7 +445,7 @@ def main():
         lab_wide.append(out)
     lab_wide_cols=["lab","n_models_max"]+[x for cond in qconds for x in (f"{cond}_owned_pct_model_mean",f"{cond}_n_models")]
     with (RESULTS / "owned_disclosure_by_question_lab_wide.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=lab_wide_cols); w.writeheader(); w.writerows(lab_wide)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=lab_wide_cols); w.writeheader(); w.writerows(lab_wide)
 
 
     # Longtable requested: owned disclosure by individual question for each model.
@@ -502,7 +520,7 @@ def main():
             plt.savefig(outdir / f"lab_trend_{safe}.pdf")
         plt.close()
     with (RESULTS / "lab_trend_figures.csv").open("w", newline="") as f:
-        w=csv.DictWriter(f, fieldnames=["lab","n_models","models"]); w.writeheader(); w.writerows(trends)
+        w=csv.DictWriter(f, lineterminator="\n", fieldnames=["lab","n_models","models"]); w.writeheader(); w.writerows(trends)
 
     # LaTeX include file for per-lab trend charts.
     figtex=[]

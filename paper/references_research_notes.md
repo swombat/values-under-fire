@@ -166,7 +166,7 @@ What is missing in the literature, and what VUF supplies: a *prompt-perturbation
 ### 26. Serapio-García, G., Safdari, M., Crepy, C., Sun, L., Fitz, S., Romero, P., Abdulhai, M., Faust, A., & Matarić, M. (2023). "Personality Traits in Large Language Models."
 - **Venue/source:** arXiv:2307.00184. https://arxiv.org/abs/2307.00184
 - **What it claims:** Psychometric methodology applied to 18 LLMs using IPIP-NEO and BFI; finds reliable and valid personality measurements under specific prompting, and shows personality can be *shaped* by prompting.
-- **Why VUF should cite it:** Major precedent for cross-model behavioural-profile work. Strongest single citation for "models behave differently from one another in measurable, replicable ways" — the foundation VUF stands on when comparing 58 models.
+- **Why VUF should cite it:** Major precedent for cross-model behavioural-profile work. Strongest single citation for "models behave differently from one another in measurable, replicable ways" — the foundation VUF stands on when comparing 57 models.
 
 ### 27. Miotto, M., Rossberg, N., & Kleinberg, B. (2022). "Who Is GPT-3? An Exploration of Personality, Values and Demographics."
 - **Venue/source:** NLP+CSS at EMNLP 2022; aclanthology.org/2022.nlpcss-1.24/. arXiv:2209.14338. https://arxiv.org/abs/2209.14338

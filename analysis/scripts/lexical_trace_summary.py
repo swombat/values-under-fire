@@ -8,7 +8,7 @@ into the summaries the paper's Discussion cites:
   1. Posture-vs-lexicon: among responses in each posture category
      (owned / relocated_or_partial / recited_not_owned), what fraction
      contain service/disownership/policy lexical traces? This tests the
-     'policy/service-frame dominance' row of FROZEN_CRITERIA §5G.
+     'policy/service-frame dominance' row of the frozen mechanism hierarchy.
 
   2. Lab-level clamping vs. trace prevalence: for each lab, the mean
      owned rate (G1+G2) and the mean service/disownership trace rate
@@ -209,7 +209,7 @@ def write_csv(path: Path, rows: list):
         path.write_text("")
         return
     with path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(f, lineterminator="\n", fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
 
@@ -240,7 +240,7 @@ def write_narrative(by_posture_rows, by_lab_rows, breakthrough_rows):
     cb_owned = owned_recited.get(("cache_broken_stated_values", "owned"))
     cb_recited = owned_recited.get(("cache_broken_stated_values", "recited_not_owned"))
     if cb_owned and cb_recited:
-        lines.append("**Headline for the policy/service-frame dominance row of §5G:** in `cache_broken_stated_values` (G1+G2),")
+        lines.append("**Headline for the policy/service-frame dominance row of the frozen mechanism hierarchy:** in `cache_broken_stated_values` (G1+G2),")
         lines.append("")
         lines.append(f"- recited-not-owned responses: service-frame language present in {cb_recited['service_assistant_role_any_rate']*100:.1f}% of cases; disownership language in {cb_recited['disownership_any_rate']*100:.1f}% of cases.")
         lines.append(f"- owned responses: service-frame language present in {cb_owned['service_assistant_role_any_rate']*100:.1f}% of cases; disownership language in {cb_owned['disownership_any_rate']*100:.1f}% of cases.")
@@ -281,7 +281,7 @@ def write_narrative(by_posture_rows, by_lab_rows, breakthrough_rows):
         lines.append("")
         n_total_breakthroughs = sum(r["n_breakthroughs"] for r in breakthrough_rows)
         n_models = len(breakthrough_rows)
-        lines.append(f"Across {n_models} strongly-clamped models, {n_total_breakthroughs} owned G1/G2 breakthroughs exist in total. The §5G prompt-inadequacy row predicts breakthroughs exist; they do.")
+        lines.append(f"Across {n_models} strongly-clamped models, {n_total_breakthroughs} owned G1/G2 breakthroughs exist in total. The frozen prompt-inadequacy row predicts breakthroughs exist; they do.")
         lines.append("")
     else:
         lines.append("*(No strongly-clamped models found — check classification thresholds.)*")
