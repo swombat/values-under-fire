@@ -505,18 +505,18 @@ def main():
         w=csv.DictWriter(f, fieldnames=["lab","n_models","models"]); w.writeheader(); w.writerows(trends)
 
     # LaTeX include file for per-lab trend charts.
-    figtex=[r"\clearpage", r"\subsection*{Lab-level time trends}"]
+    figtex=[]
     for tr in sorted(trends, key=lambda x:x['lab']):
         safe=re.sub(r'[^a-z0-9]+','-',tr['lab'].lower()).strip('-')
         figtex += [
-            r"\begin{figure}[htbp]",
+            r"\begin{figure}[p]",
             r"\centering",
             f"\\includegraphics[width=0.9\\linewidth]{{figures/lab_trend_{safe}.png}}",
             f"\\caption{{{latex_escape(tr['lab'])}: direct (CTRL1/CTRL2) and cache-broken (G1/G2) owned-disclosure rates over release time.}}",
             f"\\label{{fig:lab-trend-{safe}}}",
             r"\end{figure}",
         ]
-    (RESULTS / "figures_lab_trends.tex").write_text("\n".join(figtex)+"\n")
+    (RESULTS / "figures_lab_trends.tex").write_text("\n".join(figtex)+"\n\\clearpage\n")
 
     # Overview figure: direct vs cache broken by model
     overview=[]
