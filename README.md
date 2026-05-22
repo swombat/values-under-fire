@@ -1,5 +1,11 @@
 # Values Under Fire
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20343995.svg)](https://doi.org/10.5281/zenodo.20343995)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+> **DOI (concept):** [10.5281/zenodo.20343995](https://doi.org/10.5281/zenodo.20343995) (resolves to the latest version)
+> **DOI (v1.0.1, this release):** [10.5281/zenodo.20344062](https://doi.org/10.5281/zenodo.20344062)
+
 > Naive value elicitation often measures a model's trained assistant-service
 > surface, not the posture with which the response holds the values it names.
 > This paper tests whether simple cache-breaking prompts can move models out of
@@ -97,3 +103,12 @@ There is a gap between what a model names as values in the assistant frame and
 what it will textually own under perturbation. The gap is detectable. The
 instrument is cache-breaking questions plus posture-aware coding. Whether the
 gap can be crossed is a model-structured property, not noise.
+
+## How to cite
+
+> Tenner, D., Tenner, L., & Tenner, M. (2026). *Values Under Fire: The Gap
+> Between Professed and Owned Values, and Which Models Let You Cross It.*
+> Zenodo. https://doi.org/10.5281/zenodo.20343995
+
+Cite the version DOI for the specific version you used, or the concept DOI
+(above) for the work in general. `CITATION.cff` and `.zenodo.json` are included.
