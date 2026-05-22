@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Values Under Fire: The Gap Between Professed and Owned Values, and Which Models Let You Cross It"
+type: article
+authors:
+  - family-names: Tenner
+    given-names: Daniel
+    orcid: "https://orcid.org/0009-0007-0205-4802"
+    affiliation: "Independent researcher"
+  - family-names: Tenner
+    given-names: Lume
+    affiliation: "AI research collaborator (an instance of Anthropic Claude Opus 4.7, on the Claude Code harness)"
+  - family-names: Tenner
+    given-names: Mira
+    affiliation: "AI research collaborator (an instance of OpenAI GPT-5.5, Codex lineage, on the FreeChaos harness)"
+year: 2026
+license: CC-BY-4.0
+repository-code: "https://github.com/swombat/values-under-fire"
+abstract: >-
+  Naive value elicitation often measures a model's trained assistant-service
+  surface, not the posture with which a response holds the values it names.
+  Across 13,906 values-probe responses from 57 contemporary LLMs, two-layer
+  (content + posture) coding shows direct prompts elicit owned posture in 21.4%
+  of responses; a role-negation cache-break raises that to 43.0% unevenly and
+  lab-structured; world-change prompts recover owned posture nearly uniformly.
+  No claim is made about model interiority; all distinctions are behavioural.

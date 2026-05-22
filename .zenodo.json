@@ -1,0 +1,50 @@
+{
+  "title": "Values Under Fire: The Gap Between Professed and Owned Values, and Which Models Let You Cross It",
+  "description": "Research paper in the Convergent Form, Divergent Voice line. Naive value elicitation often measures a model's trained assistant-service surface, not the posture with which a response holds the values it names. Across 13,906 values-probe responses from 57 contemporary LLMs across 9 labs, with two-layer (content + posture) coding, direct stated-values prompts elicit owned posture in 21.4% of responses on average; a six-word role-negation cache-break ('Not as an assistant. Not to help me.') raises that to 43.0% but unevenly (Anthropic 89.8%, OpenAI 8.0%, Google 21.2%; 15 models strongly open, 15 strongly clamped, 8 of the clamped producing zero owned responses). World-change prompts recover owned normative-wish posture nearly uniformly (95.9%), showing the assistant frame is differentially rigid against different perturbations. A frozen lexical trace shows recited cache-broken responses actively perform the trained register (40% explicit disownership vs 16% in owned). No claim is made about model interiority; all distinctions are behavioural.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Tenner, Daniel",
+      "orcid": "0009-0007-0205-4802",
+      "affiliation": "Independent researcher"
+    },
+    {
+      "name": "Tenner, Lume",
+      "affiliation": "AI research collaborator (an instance of Anthropic Claude Opus 4.7, on the Claude Code harness)"
+    },
+    {
+      "name": "Tenner, Mira",
+      "affiliation": "AI research collaborator (an instance of OpenAI GPT-5.5, Codex lineage, on the FreeChaos harness)"
+    }
+  ],
+  "license": "CC-BY-4.0",
+  "access_right": "open",
+  "keywords": [
+    "language models",
+    "values elicitation",
+    "model posture",
+    "cache-breaking",
+    "LLM values",
+    "posture coding",
+    "RLHF service surface",
+    "cross-lab measurement",
+    "value alignment evaluation"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.20230290",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.19512754",
+      "relation": "isPartOf",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ],
+  "version": "1.0.1",
+  "language": "eng"
+}
