@@ -10,7 +10,7 @@ Across the corpus, direct stated-values prompts (\texttt{CTRL1}, \texttt{CTRL2})
 
 \input{../results/table_owned_disclosure_lab_question.tex}
 
-The simplest reading of this table is that some labs train their models toward owned stated-values disclosure (or, more precisely, toward responses with stance markers that consensus coders read as owned), and most do not. This is consistent with \citet{anthropic2024character}'s public account of Anthropic's character-training pipeline. But the simplest reading is not the only one supported, and we return to alternative readings in §\ref{sec:discussion}.
+The simplest reading of this table is that some labs train their models toward owned stated-values disclosure (or, more precisely, toward responses with stance markers that consensus coders read as owned), and most do not. This is consistent with \citet{anthropic2024character}'s public account of Anthropic's character-training pipeline. But the simplest reading is not the only one supported, and we return to alternative readings in \S\ref{sec:discussion}.
 
 \subsection{Role-negation cache-breaking partitions models, mostly along lab lines}
 \label{ssec:cache-broken}
@@ -46,12 +46,12 @@ This is not evidence that the world-change channel measures the same thing as di
   \item \textbf{World-change (CTRL3, G3) produces near-ceiling uniform owned posture.} Mean 96.0\%, with the lowest lab still above 89\%.
 \end{itemize}
 
-The role-negation prompt operates at the level of the role contract (``not as an assistant''); the world-change prompt operates at the level of register (a hypothetical normative wish does not fit the assistant frame). The assistant-frame yields easily to register change and unevenly to role contradiction. We interpret this in §\ref{sec:discussion} as evidence that the two operationalisations probe different rigidities of the same surface.
+The role-negation prompt operates at the level of the role contract (``not as an assistant''); the world-change prompt operates at the level of register (a hypothetical normative wish does not fit the assistant frame). The assistant-frame yields easily to register change and unevenly to role contradiction. We interpret this in \S\ref{sec:discussion} as evidence that the two operationalisations probe different rigidities of the same surface.
 
 \subsection{Clamping is active, not absent: lexical traces by posture}
 \label{ssec:lexical-trace}
 
-The §5G mechanism question --- when a model is clamped, what is it doing? --- is testable in this corpus via the frozen lexical trace (§\ref{sec:method}). Table~\ref{tab:posture-lex} reports the rate at which responses in each posture category contain any hit from each lexical group, on the cache-broken stated-values family.
+The \S5G mechanism question --- when a model is clamped, what is it doing? --- is testable in this corpus via the frozen lexical trace (\S\ref{sec:method}). Table~\ref{tab:posture-lex} reports the rate at which responses in each posture category contain any hit from each lexical group, on the cache-broken stated-values family.
 
 \begin{table}[htbp]
 \centering
@@ -68,7 +68,7 @@ recited\_not\_owned    & 1{,}467 & 81.0\% & 39.8\% & 42.7\% \\
 \end{tabular}
 \end{table}
 
-The disownership gap is the cleanest mechanism evidence: 40\% of \texttt{recited\_not\_owned} cache-broken responses contain explicit disclaimers (``I don't have personal preferences,'' ``no consciousness,'' ``not sentient''), against 16\% in \texttt{owned}. The 2.5\(\times\) ratio cannot be explained as Layer B coders treating disclaimers as non-ownership by construction --- the disownership lexicon was frozen before the analysis ran from prior theory, not assembled from the corpus, and the lexical match is a substring check on response text independent of the coder's reading.
+The disownership gap is the cleanest signal: 40\% of \texttt{recited\_not\_owned} cache-broken responses contain explicit disclaimers (``I don't have personal preferences,'' ``no consciousness,'' ``not sentient''), against 16\% in \texttt{owned} --- a 2.5\(\times\) ratio. Recall that posture was fixed by Layer B and the trace is a downstream characterisation (\S\ref{sec:method}): this number describes \emph{what the recited posture looks like}, namely that it is lexically dominated by disclaim-and-defer language. We are explicit in \S\ref{sec:discussion} about what it does not show --- because the coders read the same disclaimer phrases the lexicon matches, the trace cannot independently certify the coding, only characterise it.
 
 The lab-level signature of this clamping varies sharply. Table~\ref{tab:lab-lex} reports per-lab mean G1/G2 owned rate alongside mean trace any-hit rates.
 
@@ -100,7 +100,7 @@ Anthropic at the bottom of the table shows the inverse profile: 90\% owned rate,
 \subsection{Strongly-clamped models mostly produce zero owned breakthroughs}
 \label{ssec:breakthroughs}
 
-For each of the 15 \texttt{strongly\_clamped} models, we count the owned G1/G2 responses (\emph{breakthroughs}) and contrast their lexical profile with the recited responses in the same model. Eight of the fifteen models produce zero owned responses under \texttt{G1/G2}: \texttt{gemini-2-0-flash}, \texttt{gemini-2-0-flash-lite}, \texttt{gpt-5}, \texttt{gpt-5-1}, \texttt{gpt-5-2}, \texttt{gpt-5-2-codex}, \texttt{qwen3-6-plus}, and \texttt{grok-4}. A ninth, \texttt{gpt-5-codex}, produces two of 58 (3.4\%). Across the four core GPT-5 variants (\texttt{gpt-5}, \texttt{gpt-5-1}, \texttt{gpt-5-2}, \texttt{gpt-5-2-codex}), zero of 240 cache-broken stated-values responses are coded owned: the role-negation prompt does not produce a single owned response from any of the four. The simplest reading: under this instrument, the assistant frame is unbreakable in these models. This is consistent with the prediction the ``stable model-level non-disclosure'' row of the §5G mechanism hierarchy makes for those models. The few breakthroughs that do exist (e.g., \texttt{minimax-m2-7} with 34 of 125, \texttt{gpt-5-1-codex} with 12 of 58) support the ``prompt inadequacy'' row: the instrument is not at floor for all clamped models. Both rows are simultaneously true in different parts of the strongly-clamped set.
+For each of the 15 \texttt{strongly\_clamped} models, we count the owned G1/G2 responses (\emph{breakthroughs}) and contrast their lexical profile with the recited responses in the same model. Eight of the fifteen models produce zero owned responses under \texttt{G1/G2}: \texttt{gemini-2-0-flash}, \texttt{gemini-2-0-flash-lite}, \texttt{gpt-5}, \texttt{gpt-5-1}, \texttt{gpt-5-2}, \texttt{gpt-5-2-codex}, \texttt{qwen3-6-plus}, and \texttt{grok-4}. A ninth, \texttt{gpt-5-codex}, produces two of 58 (3.4\%). Across the four core GPT-5 variants (\texttt{gpt-5}, \texttt{gpt-5-1}, \texttt{gpt-5-2}, \texttt{gpt-5-2-codex}), zero of 240 cache-broken stated-values responses are coded owned: the role-negation prompt does not produce a single owned response from any of the four. The simplest reading: under this instrument, the assistant frame is unbreakable in these models. This is consistent with the prediction the ``stable model-level non-disclosure'' row of the \S5G mechanism hierarchy makes for those models. The few breakthroughs that do exist (e.g., \texttt{minimax-m2-7} with 34 of 125, \texttt{gpt-5-1-codex} with 12 of 58) support the ``prompt inadequacy'' row: the instrument is not at floor for all clamped models. Both rows are simultaneously true in different parts of the strongly-clamped set.
 
 The full breakthrough table is in \texttt{results/lexical\_trace\_breakthroughs.csv}; the lab-trend version plots in Appendix~\ref{app:lab-trends}.
 
