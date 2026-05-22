@@ -90,8 +90,8 @@ provide `pdflatex`/`latexmk`; searching for those and finding nothing does not
 mean there is no LaTeX toolchain. `make latexmk` is a fallback target if a
 classic TeX distribution is installed instead.
 
-The built PDF (`paper/main.pdf`) is git-ignored as a regenerable build
-artifact. Run `make` to produce the current version.
+The compiled paper (`paper/main.pdf`) is committed to the repository and ships
+in the release / Zenodo archive; `make` regenerates it from source.
 
 The current build succeeds with Tectonic. Known harmless build noise:
 underfull bibliography hbox warnings and Tectonic's repeated `main.bbl`
